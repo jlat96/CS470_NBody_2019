@@ -6,10 +6,18 @@
  * TODO: Documentation
  */
 
- #include <stdio.h>
- #include <stdlib.h>
- #include <math.h>
- #include "nbody_psm.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <unistd.h>
+#include <getopt.h>
+#include "nbody_psm.h"
+
+int time_step;                  // Time step
+int num_ts;                     // Number of time steps
+int granularity;                // Output granularity (in time steps)
+int mac_degree = MAC_DEGREE;    // Degree of maclaurin polynomials
+int num_bodies = NUM_BODIES;    // Number of bodies
 
 /*
  * Calculates the Cauchy Procuct of a vector 'a'  raised to a 
@@ -74,7 +82,39 @@ double horner_value(double c[], double t, int n)
     return sum;
 }
 
- int main() 
- {
+/*
+ * Prints the usage
+ */
+void usage(int argc, char *argv[])
+{
+    printf("Usage: %s [-tng] <input_file>\n", argv[0]);
+}
+
+int main(int argc, char *argv[]) 
+{
+    // Get command line arguments
+    int c;
+    while ((c = getopt(argc, argv, "t:n:g:")) != -1) 
+    {
+        switch (c) 
+        {
+        case 'n':
+            num_ts = atoi(optarg);
+            break;
+        case 'g':
+            granularity = atoi(optarg);
+            break;
+        case 't':
+            time_step = atoi(optarg);
+            break;
+        default:
+            usage(argc, argv);
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    // Read input file
+
+
     return 0;
- }
+}
