@@ -88,11 +88,15 @@ double horner_value(double c[], double t, int n)
 void usage(int argc, char *argv[])
 {
     printf("Usage: %s [-tng] <input_file>\n", argv[0]);
+    printf("\t-t: Specify the time step")
+    printf("\t-n: Specify the number of time steps to complete")
+    printf("\t-g: Specify the granularity of the output (how often to report new state)")
 }
 
 int main(int argc, char *argv[]) 
 {
     // Get command line arguments
+
     int c;
     while ((c = getopt(argc, argv, "t:n:g:")) != -1) 
     {
@@ -112,8 +116,13 @@ int main(int argc, char *argv[])
             exit(EXIT_FAILURE);
         }
     }
+    if (optind != argc - 1) {
+        usage(argc, argv);
+        exit(EXIT_FAILURE);
+    }
 
     // Read input file
+    
 
     // Body positions (in sequence)
     double x[num_bodies + 1][mac_degree + 1], y[num_bodies + 1][mac_degree + 1], y[num_bodies + 1][mac_degree + 1];
@@ -125,6 +134,11 @@ int main(int argc, char *argv[])
     double r[num_bodies + 1][num_bodies + 1][mac_degree + 1], b[num_bodies + 1][num_bodies + 1][mac_degree + 1]
     // PSM values for updating body position and velocity
     double x_psm, y_psm, z_psm, u_psm, v_psm, w_psm;
+
+
+
+    // Cleanup and exit
+    free(fname)
 
     return 0;
 }
