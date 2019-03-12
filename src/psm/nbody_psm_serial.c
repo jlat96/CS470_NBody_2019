@@ -115,6 +115,16 @@ int main(int argc, char *argv[])
 
     // Read input file
 
+    // Body positions (in sequence)
+    double x[num_bodies + 1][mac_degree + 1], y[num_bodies + 1][mac_degree + 1], y[num_bodies + 1][mac_degree + 1];
+    // Body velocities (in sequence)
+    double u[num_bodies + 1][mac_degree + 1], v[num_bodies + 1][mac_degree + 1], w[num_bodies + 1][mac_degree + 1];
+    // Body masses
+    double mass[num_bodies + 1]
+    // Used for calculating body values
+    double r[num_bodies + 1][num_bodies + 1][mac_degree + 1], b[num_bodies + 1][num_bodies + 1][mac_degree + 1]
+    // PSM values for updating body position and velocity
+    double x_psm, y_psm, z_psm, u_psm, v_psm, w_psm;
 
     return 0;
 }

@@ -12,4 +12,6 @@
 double cauchy_power(double a[], double b[], int n, double pow);
 double cauchy_prod(double a[], double b[], int n);
 double cauchy_square(double a[], int n);
+double horner_value(double c[], double t, int n);
+double usage(int argc, char *argv[]);
 
