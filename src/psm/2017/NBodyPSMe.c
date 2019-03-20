@@ -15,9 +15,9 @@
  exponent (cauchypower in  CauchyProdPower.h). This reduces the number of
  calculations needed.
  */
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 #include "NBPSMparameters.h"      // Power Series Method parameters
 
@@ -193,6 +193,7 @@ int main()
 
   nc = 0;
 
+    // MAIN LOOP
   for ( ns = 2; ns <= num; ns++ )
   {
       
@@ -202,9 +203,11 @@ int main()
        These are needed for the gravitational force laws (Newton)
        
        */
-      
+    
+      // LOOP 1
       for ( i = 1; i <=NB; i++ )
       {
+          // LOOP 2
           for ( j = 1; j <= i-1; j++ )
           {
               
@@ -215,6 +218,8 @@ int main()
               b[i][j][0] = pow(r[i][j][0],-1.5);
               
           }
+
+          // LOOP 3
           for ( j = i+1; j <= NB; j++ )
           {
               
@@ -226,17 +231,24 @@ int main()
               
           }
       }
-      
+    
+    // LOOP 4
     for ( k = 1; k <= Mdeg; k++ )
     {
+
+        // LOOP 5
         for ( i = 1; i <= NB; i++ )
         {
            x[i][k] = u[i][k-1]/k;
            y[i][k] = v[i][k-1]/k;
            z[i][k] = w[i][k-1]/k;
         }
+
+        // LOOP 6
         for ( i = 1; i <= NB; i++ )
         {
+
+           // LOOP 7
            for ( j = 1; j <= i-1; j++ )
            {
                 
@@ -247,6 +259,8 @@ int main()
                 b[i][j][k] = cauchypower(r[i][j],b[i][j],k-1,-1.5);
                 
             }
+
+            // LOOP 8
             for ( j = i+1; j <= NB; j++ )
             {
                 
@@ -258,12 +272,15 @@ int main()
                 
             }
         }
+
+        // LOOP 9
         for ( i = 1; i <= NB; i++ )
         {
             u[i][k] = 0;
             v[i][k] = 0;
             w[i][k] = 0;
             
+            // LOOP 10
             for ( j = 1; j <= i-1; j++ )
             {
                 
@@ -272,6 +289,8 @@ int main()
                 w[i][k] = w[i][k] + mass[j]*cauchyprod(Z[i][j],b[i][j],k-1);
                 
             }
+
+            // LOOP 11
             for ( j = i+1; j <= NB; j++ )
             {
                 
