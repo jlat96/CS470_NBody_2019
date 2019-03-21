@@ -132,7 +132,9 @@ int main(int argc, char *argv[])
     }
     */
 
-    // Read input file
+    // TODO: Read input file, determine number of bodies, initialize arrays to size
+
+    // TODO: Iterate through bodies and assign values
     
 
     // Body positions (in sequence)
@@ -157,21 +159,19 @@ int main(int argc, char *argv[])
     
     // PSM values for updating body position and velocity
     double x_psm, y_psm, z_psm, u_psm, v_psm, w_psm;
-    
-    int num_cycles = 0;
 
     // TODO: Replace hard coded valyes with values read from input file
     
-    mass[1]       =  1.;
-    mass[2]    =  1.66013679527193035E-7;
-    mass[3]      =  2.44783959796682464E-6;
-    mass[4]     =  3.04043273871083524E-6;
-    mass[5]      =  3.22714936215392876E-7;
-    mass[6]    =  9.54790662147324233E-4;
-    mass[7]     =  2.85877644368210402E-4;
-    mass[8]     =  4.35540069686411149E-5;
-    mass[9]    =  5.17759138448793649E-5;
-    mass[10]      =  7.6923076923076926E-9;
+    mass[1] =  1.;
+    mass[2] =  1.66013679527193035E-7;
+    mass[3] =  2.44783959796682464E-6;
+    mass[4] =  3.04043273871083524E-6;
+    mass[5] =  3.22714936215392876E-7;
+    mass[6] =  9.54790662147324233E-4;
+    mass[7] =  2.85877644368210402E-4;
+    mass[8] =  4.35540069686411149E-5;
+    mass[9] =  5.17759138448793649E-5;
+    mass[10] = 7.6923076923076926E-9;
 
 	/*    Set up the initial positions and velocities  */
     /* SUN */
@@ -240,12 +240,12 @@ int main(int argc, char *argv[])
 
 
     /* NEPTUNE */
-	x[9][0] =  4.84009700000;
+	x[9][0] = 4.84009700000;
   	y[9][0] = -26.23912700000;
   	z[9][0] = 0.1982557900000;
-  	u[9][0] =  0.1578550564045;
-  	v[9][0] =  0.9132161165808E-01;
-  	w[9][0] =  -.5510764371051E-02;
+  	u[9][0] = 0.1578550564045;
+  	v[9][0] = 0.9132161165808E-01;
+  	w[9][0] = -.5510764371051E-02;
 
     /* PLUTO */
 	x[10][0] = -12.10226300000;
@@ -259,34 +259,26 @@ int main(int argc, char *argv[])
     {
         printf("Time step: %f\n", time_step);
         printf("Number of time steps: %d\n", num_ts);
-        printf("Granularity: %d\n", granularity);
+        printf("Granularity: %d\n\n", granularity);
     }
 
     if (debug)
     {
-        printf("Starting Main Loop\n");
+        printf("Starting Main Loop with %d time steps\n", num_ts);
     }
-    
-    // MAIN LOOP
-    for (int step = 2; step <= num_ts; step++)
-    {
 
+    for (int step = 0; step <= num_ts; step++)
+    {
         if (debug)
         {
-            printf("Step %d", step);
+            printf("Step %d\n", step);
         }
-        
-        if (debug)
-        {
-            printf("Loop 1");
-        }
-        
-        // Setup X, Y, Z, r and b from the updated initial conditions
+
         // LOOP 1
         for (int i = 1; i <= num_bodies; i++)
         {
             // LOOP 2
-            for(int j = 1; j < i; j++) // Check this
+            for(int j = 1; j <= i-1; j++)
             {
                 X[i][j][0] = x[j][0] - x[i][0];
                 Y[i][j][0] = y[j][0] - y[i][0];
@@ -310,7 +302,7 @@ int main(int argc, char *argv[])
         for (int k = 1; k <= mac_degree; k++)
         {
             // LOOP 5
-            for (int i = 1; i <= num_bodies; k++)
+            for (int i = 1; i < num_bodies; i++)
             {
                 x[i][k] = u[i][k - 1]/k;
                 y[i][k] = v[i][k - 1]/k;
@@ -321,7 +313,7 @@ int main(int argc, char *argv[])
             for (int i = 1; i <= num_bodies; i++)
             {
                 // LOOP 7
-                for (int j = 0; j <= num_bodies; j++)
+                for (int j = 1; j <= num_bodies; j++)
                 {
                     X[i][j][k] = x[j][k] - x[i][k];
                     Y[i][j][k] = y[j][k] - y[i][k];
@@ -331,7 +323,7 @@ int main(int argc, char *argv[])
                                     cauchy_prod(Z[i][j], Z[i][j], k);
                     b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
                 }
-                
+
                 // LOOP 8
                 for (int j = i + 1; j <= num_bodies; j++)
                 {
@@ -344,7 +336,6 @@ int main(int argc, char *argv[])
                     b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
                 }
             }
-            
             // LOOP 9
             for (int i = 1; i <= num_bodies; i++)
             {
@@ -373,7 +364,7 @@ int main(int argc, char *argv[])
                 w[i][k] = w[i][k]/k;
             }
         }
-        
+
         // Determine the values of the Maclaurin polynomial using Horner's algorithm and the
         // stored Maclauren coefficients
         for (int i = 1; i <= num_bodies; i++)
@@ -398,7 +389,7 @@ int main(int argc, char *argv[])
         }
 
         // Output the step number based on the output granularity
-        if (++num_cycles % granularity == 0)
+        if (step % granularity == 0)
         {
             printf("Step %d\n", step);
             
@@ -414,6 +405,8 @@ int main(int argc, char *argv[])
         } 
     }
     
+    
+    
     if (debug)
     {
         printf("End of main loop");
@@ -421,6 +414,9 @@ int main(int argc, char *argv[])
     
 
     // Cleanup and exit
-
+    if (debug)
+    {
+        printf("Cleanup and exit\n");
+    }
     return 0;
 }
