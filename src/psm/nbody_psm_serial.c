@@ -128,15 +128,12 @@ int main(int argc, char *argv[])
         }
     }
     
+    /*
     if (optind != argc - 1) {
         usage(argv);
         exit(EXIT_FAILURE);
-    }
-    
-    
-
-    // TODO: Iterate through bodies and assign values
-    
+    } 
+    */   
 
     // Body positions (in sequence)
     double x[num_bodies + 1][mac_degree + 1];
@@ -162,6 +159,9 @@ int main(int argc, char *argv[])
     double x_psm, y_psm, z_psm, u_psm, v_psm, w_psm;
 
 
+    // TODO: Fix File Input
+
+    /*
     FILE *in_file;
     char line[BUFFER_SIZE];
     char *file_name = argv[optind];
@@ -214,19 +214,7 @@ int main(int argc, char *argv[])
         w[i][0] = tmp[6];
 
     }
-
-    for (int i = 1; i <= 10; i++)
-    {
-        printf("Body %d\n", i);
-        printf("Mass: %f\n", mass[i]);
-        printf("x: %f\n", x[i][0]);
-        printf("y: %f\n", y[i][0]);
-        printf("z: %f\n", z[i][0]);
-        printf("w: %f\n", u[i][0]);
-        printf("v: %f\n", v[i][0]);
-        printf("w: %f\n", w[i][0]);
-        printf("\n");
-    }
+    */
 
     // TODO: Replace hard coded valyes with values read from input file
     
@@ -322,6 +310,24 @@ int main(int argc, char *argv[])
   	u[10][0] = 0.1714028159354;
   	v[10][0] = -.1021868903979;
   	w[10][0] = -.3854629379438E-01;
+
+    if (verbose) 
+    {
+        printf("Initial Body States:\n");   
+        for (int i = 1; i <= 10; i++)
+        {
+            printf("Body %d\n", i);
+            printf("Mass: %f\n", mass[i]);
+            printf("x: %f\n", x[i][0]);
+            printf("y: %f\n", y[i][0]);
+            printf("z: %f\n", z[i][0]);
+            printf("w: %f\n", u[i][0]);
+            printf("v: %f\n", v[i][0]);
+            printf("w: %f\n", w[i][0]);
+            printf("\n");
+        }
+    }
+    
 
     if (verbose)
     {
@@ -470,7 +476,6 @@ int main(int argc, char *argv[])
             }
         } 
     }
-    
     
     
     if (debug)
