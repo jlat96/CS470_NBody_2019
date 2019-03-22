@@ -135,29 +135,6 @@ int main(int argc, char *argv[])
     } 
     */   
 
-    // Body positions (in sequence)
-    double x[num_bodies + 1][mac_degree + 1];
-    double y[num_bodies + 1][mac_degree + 1];
-    double z[num_bodies + 1][mac_degree + 1];
-    
-    // Body velocities (in sequence)
-    double u[num_bodies + 1][mac_degree + 1];
-    double v[num_bodies + 1][mac_degree + 1];
-    double w[num_bodies + 1][mac_degree + 1];
-    
-    // Body masses
-    double mass[num_bodies + 1];
-    
-    // Used for calculating body values
-    double X[num_bodies + 1][num_bodies + 1][mac_degree + 1];
-    double Y[num_bodies + 1][num_bodies + 1][mac_degree + 1];
-    double Z[num_bodies + 1][num_bodies + 1][mac_degree + 1];
-    double r[num_bodies + 1][num_bodies + 1][mac_degree + 1];
-    double b[num_bodies + 1][num_bodies + 1][mac_degree + 1];
-    
-    // PSM values for updating body position and velocity
-    double x_psm, y_psm, z_psm, u_psm, v_psm, w_psm;
-
 
     // TODO: Fix File Input
 
@@ -183,7 +160,32 @@ int main(int argc, char *argv[])
     }
 
     num_bodies = atoi(line);
-
+    */
+    
+        // Body positions (in sequence)
+    double x[num_bodies + 1][mac_degree + 1];
+    double y[num_bodies + 1][mac_degree + 1];
+    double z[num_bodies + 1][mac_degree + 1];
+    
+    // Body velocities (in sequence)
+    double u[num_bodies + 1][mac_degree + 1];
+    double v[num_bodies + 1][mac_degree + 1];
+    double w[num_bodies + 1][mac_degree + 1];
+    
+    // Body masses
+    double mass[num_bodies + 1];
+    
+    // Used for calculating body values
+    double X[num_bodies + 1][num_bodies + 1][mac_degree + 1];
+    double Y[num_bodies + 1][num_bodies + 1][mac_degree + 1];
+    double Z[num_bodies + 1][num_bodies + 1][mac_degree + 1];
+    double r[num_bodies + 1][num_bodies + 1][mac_degree + 1];
+    double b[num_bodies + 1][num_bodies + 1][mac_degree + 1];
+    
+    // PSM values for updating body position and velocity
+    double x_psm, y_psm, z_psm, u_psm, v_psm, w_psm;
+    
+    /*
     double tmp[7];
 
     for (int i = 1; i <= 10; i++)
@@ -212,7 +214,6 @@ int main(int argc, char *argv[])
         u[i][0] = tmp[4];
         v[i][0] = tmp[5];
         w[i][0] = tmp[6];
-
     }
     */
 
@@ -318,12 +319,8 @@ int main(int argc, char *argv[])
         {
             printf("Body %d\n", i);
             printf("Mass: %f\n", mass[i]);
-            printf("x: %f\n", x[i][0]);
-            printf("y: %f\n", y[i][0]);
-            printf("z: %f\n", z[i][0]);
-            printf("w: %f\n", u[i][0]);
-            printf("v: %f\n", v[i][0]);
-            printf("w: %f\n", w[i][0]);
+            printf("x: %f\ty: %f\tz: %f\n", x[i][0], y[i][0], z[i][0]);
+            printf("u: %f\tv: %f\tw: %f\n", u[i][0], v[i][0], w[i][0]);
             printf("\n");
         }
     }
@@ -352,7 +349,7 @@ int main(int argc, char *argv[])
         for (int i = 1; i <= num_bodies; i++)
         {
             // LOOP 2
-            for(int j = 1; j <= i-1; j++)
+            for(int j = 1; j <= i - 1; j++)
             {
                 X[i][j][0] = x[j][0] - x[i][0];
                 Y[i][j][0] = y[j][0] - y[i][0];
@@ -376,7 +373,7 @@ int main(int argc, char *argv[])
         for (int k = 1; k <= mac_degree; k++)
         {
             // LOOP 5
-            for (int i = 1; i < num_bodies; i++)
+            for (int i = 1; i <= num_bodies; i++)
             {
                 x[i][k] = u[i][k - 1]/k;
                 y[i][k] = v[i][k - 1]/k;
@@ -471,7 +468,7 @@ int main(int argc, char *argv[])
             {
                 for (int i = 1; i <= num_bodies; i++)
                 {
-                    printf("body %d: %lf\t%lf\t%lf\n", i, x[i][0], y[i][0], z[i][0]);
+                    printf("body %d: x: %lf\ty: %lf\tz: %lf\n", i, x[i][0], y[i][0], z[i][0]);
                 }
             }
         } 
