@@ -77,7 +77,7 @@ double cauchy_square(double a[], int n)
  */
 double horner_value(double c[], double t, int n)
 {
-    int sum = c[n - 1] + (t * c[n]);
+    double sum = c[n - 1] + (t * c[n]);
     for (int i = n - 2; i >= 0; i--)
     {
         sum = c[i] + t * sum;
@@ -162,7 +162,7 @@ int main(int argc, char *argv[])
     num_bodies = atoi(line);
     */
     
-        // Body positions (in sequence)
+    // Body positions (in sequence)
     double x[num_bodies + 1][mac_degree + 1];
     double y[num_bodies + 1][mac_degree + 1];
     double z[num_bodies + 1][mac_degree + 1];
@@ -375,9 +375,9 @@ int main(int argc, char *argv[])
             // LOOP 5
             for (int i = 1; i <= num_bodies; i++)
             {
-                x[i][k] = u[i][k - 1]/k;
-                y[i][k] = v[i][k - 1]/k;
-                z[i][k] = w[i][k - 1]/k;
+                x[i][k] = u[i][k - 1] / k;
+                y[i][k] = v[i][k - 1] / k;
+                z[i][k] = w[i][k - 1] / k;
             }
 
             // LOOP 6
@@ -430,9 +430,9 @@ int main(int argc, char *argv[])
                     w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
                 }
                 
-                u[i][k] = u[i][k]/k;
-                v[i][k] = v[i][k]/k;
-                w[i][k] = w[i][k]/k;
+                u[i][k] = u[i][k] / k;
+                v[i][k] = v[i][k] / k;
+                w[i][k] = w[i][k] / k;
             }
         }
 
