@@ -14,7 +14,9 @@
 #include <getopt.h>
 #include "nbody_psm.h"
 
-double time_step = DEFAULT_TS;             // Time step
+#define BUFFER_SIZE 22
+
+double time_step = DEFAULT_TS;          // Time step
 int num_ts = DEFAULT_NUM;               // Number of time steps
 int granularity = DEFAULT_GRANULARITY;  // Output granularity (in time steps)
 int mac_degree = MAC_DEGREE;            // Degree of maclaurin polynomials
@@ -89,9 +91,9 @@ double horner_value(double c[], double t, int n)
 void usage(char *argv[])
 {
     printf("Usage: %s [-tng] <input_file>\n", argv[0]);
-    printf("\t-t: Specify the time step");
-    printf("\t-n: Specify the number of time steps to complete");
-    printf("\t-g: Specify the granularity of the output (how often to report new state)");
+    printf("\t-t: Specify the time step\n");
+    printf("\t-n: Specify the number of time steps to complete\n");
+    printf("\t-g: Specify the granularity of the output (how often to report new state)\n");
 }
 
 int main(int argc, char *argv[]) 
@@ -125,14 +127,13 @@ int main(int argc, char *argv[])
             exit(EXIT_FAILURE);
         }
     }
-    /*
+    
     if (optind != argc - 1) {
         usage(argv);
         exit(EXIT_FAILURE);
     }
-    */
-
-    // TODO: Read input file, determine number of bodies, initialize arrays to size
+    
+    
 
     // TODO: Iterate through bodies and assign values
     
@@ -159,6 +160,73 @@ int main(int argc, char *argv[])
     
     // PSM values for updating body position and velocity
     double x_psm, y_psm, z_psm, u_psm, v_psm, w_psm;
+
+
+    FILE *in_file;
+    char line[BUFFER_SIZE];
+    char *file_name = argv[optind];
+
+    printf("filename: %s\n", file_name);
+
+    in_file = fopen(file_name, "r");
+    if (in_file == NULL) 
+    {
+        printf("The file %s could not be opened!\n", file_name);
+        return 1;
+    }
+
+    // Read input file, determine number of bodies, initialize arrays to size
+    if (fgets(line, BUFFER_SIZE, in_file) == NULL)
+    {
+        printf("Error reading the input file\n");
+        return 1;
+    }
+
+    num_bodies = atoi(line);
+
+    double tmp[7];
+
+    for (int i = 1; i <= 10; i++)
+    {
+        printf("Reading body %d\n", i);
+        for (int j = 0; j < 7; j++)
+        {
+            if (fgets(line, BUFFER_SIZE, in_file) == NULL)
+            {
+                printf("Error reading input file\n");
+                return 1;
+            }
+            tmp[i] = atof(line);  
+            printf("%f\n", tmp[i]);      
+        }
+
+        for (int j = 0; j < 7; j++)
+        {
+            printf("%f\n", tmp[i]);
+        }
+
+        mass[i] = tmp[0];
+        x[i][0] = tmp[1];
+        y[i][0] = tmp[2];
+        z[i][0] = tmp[3];
+        u[i][0] = tmp[4];
+        v[i][0] = tmp[5];
+        w[i][0] = tmp[6];
+
+    }
+
+    for (int i = 1; i <= 10; i++)
+    {
+        printf("Body %d\n", i);
+        printf("Mass: %f\n", mass[i]);
+        printf("x: %f\n", x[i][0]);
+        printf("y: %f\n", y[i][0]);
+        printf("z: %f\n", z[i][0]);
+        printf("w: %f\n", u[i][0]);
+        printf("v: %f\n", v[i][0]);
+        printf("w: %f\n", w[i][0]);
+        printf("\n");
+    }
 
     // TODO: Replace hard coded valyes with values read from input file
     
@@ -397,9 +465,7 @@ int main(int argc, char *argv[])
             {
                 for (int i = 1; i <= num_bodies; i++)
                 {
-                    printf("%lf\n",x[i][0]);
-                    printf("%lf\n",y[i][0]);
-                    printf("%lf\n",z[i][0]);
+                    printf("body %d: %lf\t%lf\t%lf\n", i, x[i][0], y[i][0], z[i][0]);
                 }
             }
         } 
