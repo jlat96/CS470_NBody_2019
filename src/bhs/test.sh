@@ -1,2 +1,3 @@
+cp sol_system.txt build/
 cd build
-mpirun -np 2 ./n_body -N 1000 -s 100 -v -o positions.txt
+mpirun -np 1 ./n_body -o positions.txt -f sol_system.txt

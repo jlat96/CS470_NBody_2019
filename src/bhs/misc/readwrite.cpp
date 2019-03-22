@@ -35,17 +35,58 @@ std::pair<std::vector<Body>, int> read_bodies(const char * filename, MPI_Comm co
 
     std::string line;
     int i = 0;
-    while (std::getline(infile, line)){
-        std::istringstream iss(line);
-        double x, y, z, vx, vy, vz, m;
-        if (!(iss >> x >> y >> z >> vx >> vy >> vz >> m)) { break; } // error
-        if((i % size) == rank){
-            bodies.push_back(Body{{x, y, z}, {vx, vy, vz}, m, 1});
-        }
-        i++;
-    }
-    infile.close();
+    
+    /*
+     * The following code was modified by Richard Bimmer to use the same input
+     * format as the rest of our research
+     */
 
+    // get total number of n-bodies 
+    int n = 0;
+    std::getline(infile, line);//) {
+	 std::string::size_type sz;
+	 n = std::stoi(line, &sz);
+         int current_body = 0;
+         int current_line = 0;
+         printf("Reading %d n-bodies from file...\n", n);
+
+         double x, y, z, vx, vy, vz, m;
+         while (std::getline(infile, line) && current_body < n){
+            std::istringstream iss(line);
+            if (line.empty()) continue; // skip empty lines
+
+	    double val = 0;
+	    try {
+               std::string::size_type sd;
+	       val = std::stod(line, &sd);
+	       current_line++;
+	    } catch (int e) {
+	        continue;
+	    }   
+
+            if (current_line == 1) m = val;
+	    if (current_line == 2) x = val;
+	    if (current_line == 3) y = val;
+	    if (current_line == 4) z = val;
+	    if (current_line == 5) vx = val;
+	    if (current_line == 6) vy = val;
+            if (current_line == 7) {
+                vz = val;
+		bodies.push_back(Body{{x, y, z}, {vx, vy, vz}, m, 1}); // add body
+
+		// reset variables
+		current_line = 0;
+		printf("Read in n-body %d\n.", current_body++);
+            }
+
+	    //if (!(iss >> x >> y >> z >> vx >> vy >> vz >> m)) { break; } // error
+         }
+         infile.close();
+    /*} else {
+        printf("There was an error reading from the input file. Please check that it is formatted correctly.\n");
+        // TODO: Quit?	
+    }*/	    
+ 
     if(rank != size - 1){
         int x = 1;
         MPI_Send(&x, 1, MPI_INT, rank + 1, 0, MPI_COMM_WORLD);
