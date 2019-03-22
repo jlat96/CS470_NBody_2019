@@ -5,3 +5,4 @@ nbody_psm_serial: nbody_psm_serial.c nbody_psm.h
 
 clean:
 	rm -f nbody_psm_serial
+	rm -f body*
