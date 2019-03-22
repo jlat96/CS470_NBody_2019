@@ -331,6 +331,11 @@ int main()
 	{
 	  printf(" step = %d \n",ns);
 	  nc = 0;
+	  for(i=1; i<=NB; i++)
+	  {
+	      printf("x: %lf\ty: %lf\tz: %lf\n", x[i][0], y[i][0], z[i][0]);
+	  }
+	  
     }
     for(i=1; i<=NB; i++)	/* output the (x,y,z) position of each body */
     {

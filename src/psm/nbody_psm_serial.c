@@ -3,18 +3,66 @@
  *
  *
  * Serialized port of the NBody PSM method
- * TODO: Documentation
+ *
+ * Input:
+ *
+ * An input file begins with an integer value denoting the number of 
+ * bodies in the system The next 7 values are the body's mass, the x, 
+ * y, and z values for its position relative to the center of the system,
+ * and the body's u, v , and w velocity values.
+ *
+ * A sample file with 2 bodies would appear as follows
+ *
+ * 2
+ * 1
+ * 0
+ * 0
+ * 0
+ * 0
+ * 0
+ * 0
+ * 7.6923076923076926E-9
+ * -12.10226300000
+ * -26.73256000000
+ * 6.362842900000
+ * 0.1714028159354
+ * -.1021868903979
+ * -.3854629379438E-01
+ *
+ *
+ * Acknowledgements:
+ *
+ * Timing macros provided by Dr. Mike Lam
+ * PSM Algorithm based on work and code written by Dr. Sochacki
+ * CS470 Project from 2017 about the n-body problem was viewed as
+ * reference when porting Dr. Sochacki's Matlab code (Provided by Dr. Lam)
+ *
+ * Roadmap for next steps:
+ * 1) Ensure that results from the serial version are accurate (Week 2/3)
+ * 2) Change variables used in calculation to exist at file scope (dynamically allocated memory) (Week 3)
+ * 3) Decompose steps in PSM algorithm to functions (Week 3/4)
+ * 4) Assess parallelizability of functions/regions with OpenMP (Week 4)
+ * 5) OpenMP Analysis (Week 4/5)
+ * 6) Analysis comparison with other N-Body algorithms (Week 5)
+ * 
+ * TODO: Analysis and detailed documentation
  */
 
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 #include <math.h>
 #include <unistd.h>
 #include <getopt.h>
+#include <sys/time.h>
+
 #include "nbody_psm.h"
 
-double time_step = DEFAULT_TS;             // Time step
+#define BUFFER_SIZE 22
+
+double time_step = DEFAULT_TS;          // Time step
 int num_ts = DEFAULT_NUM;               // Number of time steps
 int granularity = DEFAULT_GRANULARITY;  // Output granularity (in time steps)
 int mac_degree = MAC_DEGREE;            // Degree of maclaurin polynomials
@@ -50,32 +98,12 @@ double cauchy_prod(double a[], double b[], int n)
 }
 
 /*
- * Calculates the Cauchy Product of a vector 'a' squared.
- */
-double cauchy_square(double a[], int n)
-{
-    double square = 0;
-
-    int limit = (n/2) - 1;
-
-    if (n % 2 == 0) 
-    {
-        for (int i = 0; i <= limit; i++) 
-        {
-            square += a[i] * a[n - i];
-        }
-        square = (2 * square) + (a[n/2] * a[n/2]);
-    }
-    return square;
-}
-
-/*
  * Calculates the value of a polynomial at a given 't' 
  * using Horner's algorithm.
  */
 double horner_value(double c[], double t, int n)
 {
-    int sum = c[n - 1] + (t * c[n]);
+    double sum = c[n - 1] + (t * c[n]);
     for (int i = n - 2; i >= 0; i--)
     {
         sum = c[i] + t * sum;
@@ -88,10 +116,15 @@ double horner_value(double c[], double t, int n)
  */
 void usage(char *argv[])
 {
-    printf("Usage: %s [-tng] <input_file>\n", argv[0]);
-    printf("\t-t: Specify the time step");
-    printf("\t-n: Specify the number of time steps to complete");
-    printf("\t-g: Specify the granularity of the output (how often to report new state)");
+    printf("Usage: %s [-dghntTv]\n", argv[0]);
+    printf("\t-d: Print debug output\n");
+    printf("\t-g: Specify the granularity of the output (how often to report new state)\n");
+    printf("\t-h: Print usage\n");
+    printf("\t-n: Specify the number of time steps to complete\n");
+    printf("\t-t: Specify the time step\n");
+    printf("\t-T: Print timer output\n");
+    printf("\t-v: Print verbose output\n");
+
 }
 
 int main(int argc, char *argv[]) 
@@ -100,22 +133,31 @@ int main(int argc, char *argv[])
     int c;
     bool debug = false;
     bool verbose = false;
+    bool timer = false;
     
-    while ((c = getopt(argc, argv, "t:n:g:dv")) != -1) 
+    struct timeval tv;
+    
+    while ((c = getopt(argc, argv, "dg:hn:t:Tv")) != -1) 
     {
         switch (c) 
         {
         case 'd':
             debug = true;
             break;
-        case 'n':
-            num_ts = atoi(optarg);
-            break;
         case 'g':
             granularity = atoi(optarg);
             break;
+        case 'h':
+            usage(argv);
+            exit(EXIT_FAILURE);            
+        case 'n':
+            num_ts = atoi(optarg);
+            break;
         case 't':
             time_step = atoi(optarg);
+            break;
+        case 'T':
+            timer = true;
             break;
         case 'v':
             verbose = true;
@@ -125,18 +167,42 @@ int main(int argc, char *argv[])
             exit(EXIT_FAILURE);
         }
     }
+    
     /*
     if (optind != argc - 1) {
         usage(argv);
         exit(EXIT_FAILURE);
+    } 
+    */   
+
+
+    // TODO: Fix File Input
+
+    /*
+    FILE *in_file;
+    char line[BUFFER_SIZE];
+    char *file_name = argv[optind];
+
+    printf("filename: %s\n", file_name);
+
+    in_file = fopen(file_name, "r");
+    if (in_file == NULL) 
+    {
+        printf("The file %s could not be opened!\n", file_name);
+        return 1;
     }
-    */
 
-    // TODO: Read input file, determine number of bodies, initialize arrays to size
-
-    // TODO: Iterate through bodies and assign values
+    // Read input file, determine number of bodies, initialize arrays to size
+    if (fgets(line, BUFFER_SIZE, in_file) == NULL)
+    {
+        printf("Error reading the input file\n");
+        return 1;
+    }
     
 
+    num_bodies = atoi(line);
+    */
+    
     // Body positions (in sequence)
     double x[num_bodies + 1][mac_degree + 1];
     double y[num_bodies + 1][mac_degree + 1];
@@ -159,6 +225,42 @@ int main(int argc, char *argv[])
     
     // PSM values for updating body position and velocity
     double x_psm, y_psm, z_psm, u_psm, v_psm, w_psm;
+    
+    // File pointers for body data output
+    FILE *body_output[num_bodies + 1];
+    char outfile_name[16];
+
+    /*
+    double tmp[7];
+    for (int i = 1; i <= num_bodies; i++)
+    {
+        printf("Reading body %d\n", i);
+        for (int j = 0; j < 7; j++)
+        {
+            if (fgets(line, BUFFER_SIZE, in_file) == NULL)
+            {
+                printf("Error reading input file\n");
+                return 1;
+            }
+            tmp[i] = atof(line);  
+            printf("%f\n", tmp[i]);      
+        }
+
+        for (int j = 0; j < 7; j++)
+        {
+            printf("%f\n", tmp[i]);
+        }
+
+        mass[i] = tmp[0];
+        x[i][0] = tmp[1];
+        y[i][0] = tmp[2];
+        z[i][0] = tmp[3];
+        u[i][0] = tmp[4];
+        v[i][0] = tmp[5];
+        w[i][0] = tmp[6];
+    }
+    */
+    
 
     // TODO: Replace hard coded valyes with values read from input file
     
@@ -255,6 +357,35 @@ int main(int argc, char *argv[])
   	v[10][0] = -.1021868903979;
   	w[10][0] = -.3854629379438E-01;
 
+    if (verbose) 
+    {
+        printf("Initial Body States:\n");   
+        for (int i = 1; i <= 10; i++)
+        {
+            printf("Body %d\n", i);
+            printf("Mass: %f\n", mass[i]);
+            printf("x: %f\ty: %f\tz: %f\n", x[i][0], y[i][0], z[i][0]);
+            printf("u: %f\tv: %f\tw: %f\n", u[i][0], v[i][0], w[i][0]);
+            printf("\n");
+        }
+    }
+    
+    if (debug)
+    {
+        printf("Opening files for output\n\n");
+    }
+    
+    for (int i = 0; i < num_bodies; i++)
+    {
+        sprintf(outfile_name, "body%04d", i+1);
+        if ((body_output[i + 1] = fopen(outfile_name, "w")) == NULL)
+        {
+            printf("Output File %s could not be opened for writing: %s\n", outfile_name,
+                strerror(errno));
+        }
+    }
+    
+
     if (verbose)
     {
         printf("Time step: %f\n", time_step);
@@ -267,6 +398,8 @@ int main(int argc, char *argv[])
         printf("Starting Main Loop with %d time steps\n", num_ts);
     }
 
+    START_TIMER(main)
+
     for (int step = 0; step <= num_ts; step++)
     {
         if (debug)
@@ -278,7 +411,7 @@ int main(int argc, char *argv[])
         for (int i = 1; i <= num_bodies; i++)
         {
             // LOOP 2
-            for(int j = 1; j <= i-1; j++)
+            for(int j = 1; j <= i - 1; j++)
             {
                 X[i][j][0] = x[j][0] - x[i][0];
                 Y[i][j][0] = y[j][0] - y[i][0];
@@ -302,11 +435,11 @@ int main(int argc, char *argv[])
         for (int k = 1; k <= mac_degree; k++)
         {
             // LOOP 5
-            for (int i = 1; i < num_bodies; i++)
+            for (int i = 1; i <= num_bodies; i++)
             {
-                x[i][k] = u[i][k - 1]/k;
-                y[i][k] = v[i][k - 1]/k;
-                z[i][k] = w[i][k - 1]/k;
+                x[i][k] = u[i][k - 1] / k;
+                y[i][k] = v[i][k - 1] / k;
+                z[i][k] = w[i][k - 1] / k;
             }
 
             // LOOP 6
@@ -359,9 +492,9 @@ int main(int argc, char *argv[])
                     w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
                 }
                 
-                u[i][k] = u[i][k]/k;
-                v[i][k] = v[i][k]/k;
-                w[i][k] = w[i][k]/k;
+                u[i][k] = u[i][k] / k;
+                v[i][k] = v[i][k] / k;
+                w[i][k] = w[i][k] / k;
             }
         }
 
@@ -390,33 +523,46 @@ int main(int argc, char *argv[])
 
         // Output the step number based on the output granularity
         if (step % granularity == 0)
-        {
-            printf("Step %d\n", step);
-            
+        {   
             if (verbose) 
             {
+                printf("Step %d\n", step);
                 for (int i = 1; i <= num_bodies; i++)
                 {
-                    printf("%lf\n",x[i][0]);
-                    printf("%lf\n",y[i][0]);
-                    printf("%lf\n",z[i][0]);
+                    printf("body %d: x: %lf\ty: %lf\tz: %lf\n", i, x[i][0], y[i][0], z[i][0]);
                 }
             }
-        } 
+        }
+        
+        for (int i = 0; i < num_bodies; i++)
+        {
+            fprintf(body_output[i + 1], "x: %lf\ty: %lf\tz: %lf\n", x[i][0], y[i][0], z[i][0]);
+        }
     }
     
+    STOP_TIMER(main)
     
+    if (timer)
+    {
+        printf("Main: %0.4fs\n", GET_TIMER(main));
+    }
     
     if (debug)
     {
-        printf("End of main loop");
+        printf("End of main loop\n\n");
     }
     
 
     // Cleanup and exit
     if (debug)
     {
-        printf("Cleanup and exit\n");
+        printf("Cleanup and exit\n\n");
     }
+    
+    for (int i = 0; i < num_bodies; i++)
+    {
+        fclose(body_output[i + 1]);
+    }
+    
     return 0;
 }

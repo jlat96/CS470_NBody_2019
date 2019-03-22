@@ -9,9 +9,15 @@
 #define MAC_DEGREE 8                // Degree of Maclaurin polyomials
 #define NUM_BODIES 10               // Number of Bodies
 
+// timing macros (must first declare "struct timeval tv")
+#define START_TIMER(NAME) gettimeofday(&tv, NULL); \
+    double NAME ## _time = tv.tv_sec+(tv.tv_usec/1000000.0);
+#define STOP_TIMER(NAME) gettimeofday(&tv, NULL); \
+    NAME ## _time = tv.tv_sec+(tv.tv_usec/1000000.0) - (NAME ## _time);
+#define GET_TIMER(NAME) (NAME##_time)
+
 double cauchy_power(double a[], double b[], int n, double pow);
 double cauchy_prod(double a[], double b[], int n);
-double cauchy_square(double a[], int n);
 double horner_value(double c[], double t, int n);
 void usage(char *argv[]);
 
