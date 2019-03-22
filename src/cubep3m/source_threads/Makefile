@@ -10,7 +10,7 @@ FFTWINC=$(TACC_FFTW2_INC) #/home/merz/lib/fftw-2.1.5_intel8/include
 LDLIBS= -lsrfftw_mpi -lsrfftw -lsfftw_mpi -lsfftw -lm -ldl
 
 #Mckenzie
-FFLAGS=-fpp -g -w -O3 -axN -DDIAG #-DNGP -DMHD #-check bounds -DDEBUG #-DDEBUG_LOW #-DDEBUG_VEL -DDEBUG_CCIC -DDEBUG_RHOC -openmp -DDEBUG_LOW
+FFLAGS=-cpp -g -w -O3 -DDIAG #-DNGP -DMHD #-check bounds -DDEBUG #-DDEBUG_LOW #-DDEBUG_VEL -DDEBUG_CCIC -DDEBUG_RHOC -openmp -DDEBUG_LOW
 
 #OPTIONAL FLAGS :: -DMHD -DDEBUG_CCIC -DDEBUG_CRHO -DDEBUG_RHOC -DPOINTSRC ##-DBFTEST
 
