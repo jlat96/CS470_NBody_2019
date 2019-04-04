@@ -76,6 +76,7 @@ int num_bodies = NUM_BODIES;            // Number of bodies
 double cauchy_power(double a[], double b[], int n, double pow) 
 {
     double cauchy_pow = 0;
+    //Not Parallelizable
     for (int i = 0; i < n - 1; i++)
     {
         cauchy_pow += (i * (pow + 1) + pow - n) * a[i + 1] * b[n - i];
@@ -89,7 +90,8 @@ double cauchy_power(double a[], double b[], int n, double pow)
 double cauchy_prod(double a[], double b[], int n)
 {
     double prod = 0;
-
+    
+    //Not Parallelizable
     for (int i = 0; i < n; i++)
     {
         prod += a[i] * b[n - i];
@@ -105,6 +107,8 @@ double cauchy_prod(double a[], double b[], int n)
 double horner_value(double c[], double t, int n)
 {
     double sum = c[n - 1] + (t * c[n]);
+	
+    //Parallelizable
     for (int i = n - 2; i >= 0; i--)
     {
         sum = c[i] + t * sum;
@@ -278,6 +282,8 @@ int main(int argc, char *argv[])
 
 	/*    Set up the initial positions and velocities  */
     /* SUN */
+	
+    //Now to be done via input file
     x[1][0] = 0;
   	y[1][0] = 0;
   	z[1][0] = 0;
@@ -361,7 +367,7 @@ int main(int argc, char *argv[])
     if (verbose) 
     {
         printf("Initial Body States:\n");   
-        for (int i = 1; i <= 10; i++)
+	for (int i = 1; i <= 10; i++)
         {
             printf("Body %d\n", i);
             printf("Mass: %f\n", mass[i]);
@@ -408,10 +414,11 @@ int main(int argc, char *argv[])
             printf("Step %d\n", step);
         }
 
-        // LOOP 1
+        // LOOP 1, you're only assigning once and not touching
+	// it again. Parallelizable.
         for (int i = 1; i <= num_bodies; i++)
         {
-            // LOOP 2
+            // LOOP 2, see above
             for(int j = 1; j <= i - 1; j++)
             {
                 X[i][j][0] = x[j][0] - x[i][0];
@@ -421,7 +428,7 @@ int main(int argc, char *argv[])
                 b[i][j][0] = pow(r[i][j][0], -1.5);
             }
 
-            // LOOP 3
+            // LOOP 3, see above
             for (int j = i + 1; j < num_bodies; j++)
             {
                 X[i][j][0] = x[j][0] - x[i][0];
@@ -432,10 +439,11 @@ int main(int argc, char *argv[])
             }
         }
 
-        // LOOP 4
+        // LOOP 4, parallelizable, but a same kind of situation
+	// as LOOP 6
         for (int k = 1; k <= mac_degree; k++)
         {
-            // LOOP 5
+            // LOOP 5 Parallelizable
             for (int i = 1; i <= num_bodies; i++)
             {
                 x[i][k] = u[i][k - 1] / k;
@@ -443,10 +451,12 @@ int main(int argc, char *argv[])
                 z[i][k] = w[i][k - 1] / k;
             }
 
-            // LOOP 6
+            // LOOP 6, parallelizable, but only if we make LOOP 7
+            // and LOOP 8 omp single
             for (int i = 1; i <= num_bodies; i++)
             {
-                // LOOP 7
+                // LOOP 7, not parallelizable, cauchy_prod and cauchy_pow
+		// contain loop carry dependencies
                 for (int j = 1; j <= num_bodies; j++)
                 {
                     X[i][j][k] = x[j][k] - x[i][k];
@@ -458,7 +468,7 @@ int main(int argc, char *argv[])
                     b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
                 }
 
-                // LOOP 8
+                // LOOP 8, see above
                 for (int j = i + 1; j <= num_bodies; j++)
                 {
                     X[i][j][k] = x[j][k] - x[i][k];
@@ -470,14 +480,14 @@ int main(int argc, char *argv[])
                     b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
                 }
             }
-            // LOOP 9
+            // LOOP 9, not parallelizable
             for (int i = 1; i <= num_bodies; i++)
             {
                 u[i][k] = 0;
                 v[i][k] = 0;
                 w[i][k] = 0;
                 
-                // LOOP 10
+                // LOOP 10, see above
                 for (int j = 1; j <= i - 1; j++)
                 {
                     u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
@@ -485,7 +495,7 @@ int main(int argc, char *argv[])
                     w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
                 }
                 
-                // LOOP 11
+                // LOOP 11, see above
                 for (int j = i + 1; j <= num_bodies; j++)
                 {
                     u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
@@ -501,6 +511,8 @@ int main(int argc, char *argv[])
 
         // Determine the values of the Maclaurin polynomial using Horner's algorithm and the
         // stored Maclauren coefficients
+	//    
+	// Horner_value contains no loop carry dependencies, so this is parallelizable.
         for (int i = 1; i <= num_bodies; i++)
         {
             x_psm = horner_value(x[i], time_step, mac_degree);
