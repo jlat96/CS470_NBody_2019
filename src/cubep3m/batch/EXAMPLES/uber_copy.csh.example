@@ -1,3 +1,0 @@
-#!/bin/csh
-source batch_parameters.csh
-cp -r $LOCAL_SCRATCH_PATH/* $ARCHIVAL_PATH 
