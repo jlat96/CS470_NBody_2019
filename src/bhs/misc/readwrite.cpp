@@ -53,16 +53,15 @@ std::pair<std::vector<Body>, int> read_bodies(const char * filename, MPI_Comm co
          double x, y, z, vx, vy, vz, m;
          while (std::getline(infile, line) && current_body < n){
             std::istringstream iss(line);
-            if (line.empty()) continue; // skip empty lines
 
 	    double val = 0;
 	    try {
                std::string::size_type sd;
 	       val = std::stod(line, &sd);
 	       current_line++;
-	    } catch (int e) {
+	    } catch (const std::invalid_argument) {
 	        continue;
-	    }   
+	    }
 
             if (current_line == 1) m = val;
 	    if (current_line == 2) x = val;
@@ -76,7 +75,7 @@ std::pair<std::vector<Body>, int> read_bodies(const char * filename, MPI_Comm co
 
 		// reset variables
 		current_line = 0;
-		printf("Read in n-body %d\n.", current_body++);
+		printf("Read in n-body %d.\n", current_body++);
             }
 
 	    //if (!(iss >> x >> y >> z >> vx >> vy >> vz >> m)) { break; } // error
