@@ -19,16 +19,21 @@ f.write(str(numBodies) + "\n")
 #all of which is seperated by a newline.
 #This script generates random numbers so that
 #we perform simulations on unique data.
-for i in range(numBodies):
 
-    #Output for mass, is an int instead of
-    #a float
-    if ((i % 7) == 0):
-        f.write(str(random.randint(1, 1000000000)))
-            
-    else:
-        f.write(str(random.randint(-1000000000, 1000000000)))
-    
+
+f.write(str(1.))
+f.write("\n")
+for i in range (6):
+    f.write(str(0.))
     f.write("\n")
+    
+
+for i in range(numBodies - 1):
+
+    f.write(str(random.uniform(1., 1000000000.)))
+    f.write("\n")
+    for i in range(6):
+        f.write(str(random.uniform(-1000000000., 1000000000.)))
+        f.write("\n")
 
 f.close()
