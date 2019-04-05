@@ -11,3 +11,4 @@ clean:
 	rm -f nbody_psm_parallel
 	rm -f nbody_psm_par_serial
 	rm -f body*
+    
