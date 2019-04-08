@@ -34,19 +34,19 @@ std::pair<std::vector<Body>, int> read_bodies(const char * filename, MPI_Comm co
     infile.open(filename);
 
     std::string line;
-    int i = 0;
     
     /*
      * The following code was modified by Richard Bimmer to use the same input
      * format as the rest of our research
      */
 
-    // get total number of n-bodies 
     int n = 0;
-    std::getline(infile, line);//) {
+    int current_body = 0;
+
+    // get total number of n-bodies 
+    if (std::getline(infile, line)) {
 	 std::string::size_type sz;
 	 n = std::stoi(line, &sz);
-         int current_body = 0;
          int current_line = 0;
          printf("Reading %d n-bodies from file...\n", n);
 
@@ -71,27 +71,32 @@ std::pair<std::vector<Body>, int> read_bodies(const char * filename, MPI_Comm co
 	    if (current_line == 6) vy = val;
             if (current_line == 7) {
                 vz = val;
-		bodies.push_back(Body{{x, y, z}, {vx, vy, vz}, m, 1}); // add body
 
+		// add body
+		if ((current_body % size) == rank) {
+		    bodies.push_back(Body{{x, y, z}, {vx, vy, vz}, m, 1});
+                }
+ 
 		// reset variables
 		current_line = 0;
-		printf("Read in n-body %d.\n", current_body++);
+                current_body++;
+		//printf("Read in n-body %d.\n", current_body++);
             }
-
-	    //if (!(iss >> x >> y >> z >> vx >> vy >> vz >> m)) { break; } // error
          }
-         infile.close();
-    /*} else {
+
+         printf("Read %ld nbodies from file.\n", current_body);
+    } else {
         printf("There was an error reading from the input file. Please check that it is formatted correctly.\n");
         // TODO: Quit?	
-    }*/	    
- 
-    if(rank != size - 1){
+    }	    
+    infile.close();
+
+    if(rank != size - 1) {
         int x = 1;
         MPI_Send(&x, 1, MPI_INT, rank + 1, 0, MPI_COMM_WORLD);
     }
 
-    return std::make_pair(bodies, i);
+    return std::make_pair(bodies, current_body);
 }
 
 void write_bodies(const char * filename, const std::vector<Body> & bodies, MPI_Comm comm, bool overwrite){
