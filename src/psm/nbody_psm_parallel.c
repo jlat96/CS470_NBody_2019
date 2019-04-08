@@ -356,9 +356,6 @@ double perform_calculation(FILE *in_file)
 #           endif
 
             // LOOP 4
-#           ifdef _OPENMP
-#           pragma omp for
-#           endif
             for (k = 1; k <= mac_degree; k++)
             {
                 // LOOP 5              
