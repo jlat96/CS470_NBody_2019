@@ -110,6 +110,9 @@ double cauchy_prod(double a[], double b[], int n)
 double horner_value(double c[], double t, int n)
 {
     double sum = c[n - 1] + (t * c[n]);
+#   ifdef _OPENMP
+#   pragma omp parallel for
+#   endif
     for (int i = n - 2; i >= 0; i--)
     {
         sum = c[i] + t * sum;
@@ -274,18 +277,21 @@ double perform_calculation(FILE *in_file)
         }
     }
     
-    if (debug)
+    if (output)
     {
-        printf("Opening files for output\n\n");
-    }
-    
-    for (int i = 0; i < num_bodies; i++)
-    {
-        sprintf(outfile_name, "body%04d", i+1);
-        if ((body_output[i + 1] = fopen(outfile_name, "w")) == NULL)
+        if (debug)
         {
-            printf("Output File %s could not be opened for writing: %s\n", outfile_name,
-                strerror(errno));
+            printf("Opening files for output\n\n");
+        }
+        
+        for (int i = 0; i < num_bodies; i++)
+        {
+            sprintf(outfile_name, "body%04d", i+1);
+            if ((body_output[i + 1] = fopen(outfile_name, "w")) == NULL)
+            {
+                printf("Output File %s could not be opened for writing: %s\n", outfile_name,
+                    strerror(errno));
+            }
         }
     }
     
@@ -300,10 +306,12 @@ double perform_calculation(FILE *in_file)
     {
         printf("Starting Main Loop with %d time steps\n", num_ts);
     }
+    
+    int step, i, j, k;
 
     START_TIMER(psm)
 
-    for (int step = 0; step <= num_ts; step++)
+    for (step = 0; step <= num_ts; step++)
     {
         if (debug || verbose)
         {
@@ -311,126 +319,182 @@ double perform_calculation(FILE *in_file)
                 printf("Step %d\n", step);
         }
 
-        // LOOP 1
-        for (int i = 1; i <= num_bodies; i++)
-        {
-            // LOOP 2
-            for(int j = 1; j <= i - 1; j++)
+        // Begin parallel region
+#       ifdef _OPENMP 
+#       pragma omp parallel
+#       endif
+        {   
+            // LOOP 1
+#           ifdef _OPENMP
+#           pragma omp for
+#           endif
+            for (i = 1; i <= num_bodies; i++)
             {
-                X[i][j][0] = x[j][0] - x[i][0];
-                Y[i][j][0] = y[j][0] - y[i][0];
-                Z[i][j][0] = z[j][0] - z[i][0];
-                r[i][j][0] = pow(X[i][j][0], 2) + pow(Y[i][j][0], 2) + pow(Z[i][j][0], 2);
-                b[i][j][0] = pow(r[i][j][0], -1.5);
-            }
-
-            // LOOP 3
-            for (int j = i + 1; j < num_bodies; j++)
-            {
-                X[i][j][0] = x[j][0] - x[i][0];
-                Y[i][j][0] = y[j][0] - y[i][0];
-                Z[i][j][0] = z[j][0] - z[i][0];
-                r[i][j][0] = pow(X[i][j][0], 2) + pow(Y[i][j][0], 2) + pow(Z[i][j][0], 2);
-                b[i][j][0] = pow(r[i][j][0], -1.5);
-            }
-        }
-
-        // LOOP 4
-        for (int k = 1; k <= mac_degree; k++)
-        {
-            // LOOP 5
-            for (int i = 1; i <= num_bodies; i++)
-            {
-                x[i][k] = u[i][k - 1] / k;
-                y[i][k] = v[i][k - 1] / k;
-                z[i][k] = w[i][k - 1] / k;
-            }
-
-            // LOOP 6
-            for (int i = 1; i <= num_bodies; i++)
-            {
-                // LOOP 7
-                for (int j = 1; j <= num_bodies; j++)
+                // LOOP 2
+#               ifdef _OPENMP
+#               pragma omp for
+#               endif
+                for(j = 1; j <= i - 1; j++)
                 {
-                    X[i][j][k] = x[j][k] - x[i][k];
-                    Y[i][j][k] = y[j][k] - y[i][k];
-                    Z[i][j][k] = z[j][k] - z[i][k];
-                    r[i][j][k] = cauchy_prod(X[i][j], X[i][j], k) + 
-                                    cauchy_prod(Y[i][j], Y[i][j], k) + 
-                                    cauchy_prod(Z[i][j], Z[i][j], k);
-                    b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
+                    X[i][j][0] = x[j][0] - x[i][0];
+                    Y[i][j][0] = y[j][0] - y[i][0];
+                    Z[i][j][0] = z[j][0] - z[i][0];
+                    r[i][j][0] = pow(X[i][j][0], 2) + pow(Y[i][j][0], 2) + pow(Z[i][j][0], 2);
+                    b[i][j][0] = pow(r[i][j][0], -1.5);
                 }
 
-                // LOOP 8
-                for (int j = i + 1; j <= num_bodies; j++)
+                // LOOP 3
+#               ifdef _OPENMP
+#               pragma omp for
+#               endif
+                for (j = i + 1; j < num_bodies; j++)
                 {
-                    X[i][j][k] = x[j][k] - x[i][k];
-                    Y[i][j][k] = y[j][k] - y[i][k];
-                    Z[i][j][k] = z[j][k] - z[i][k];
-                    r[i][j][k] = cauchy_prod(X[i][j], X[i][j], k) + 
-                                    cauchy_prod(Y[i][j], Y[i][j], k) + 
-                                    cauchy_prod(Z[i][j], Z[i][j], k);
-                    b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
+                    X[i][j][0] = x[j][0] - x[i][0];
+                    Y[i][j][0] = y[j][0] - y[i][0];
+                    Z[i][j][0] = z[j][0] - z[i][0];
+                    r[i][j][0] = pow(X[i][j][0], 2) + pow(Y[i][j][0], 2) + pow(Z[i][j][0], 2);
+                    b[i][j][0] = pow(r[i][j][0], -1.5);
                 }
             }
-            // LOOP 9
-            for (int i = 1; i <= num_bodies; i++)
+            
+#           ifdef _OPENMP
+#           pragma omp barrier
+#           endif
+
+            // LOOP 4
+#           ifdef _OPENMP
+#           pragma omp for
+#           endif
+            for (k = 1; k <= mac_degree; k++)
             {
-                u[i][k] = 0;
-                v[i][k] = 0;
-                w[i][k] = 0;
+                // LOOP 5
+#               ifdef _OPENMP
+#               pragma omp for
+#               endif                
+                for (i = 1; i <= num_bodies; i++)
+                {
+                    x[i][k] = u[i][k - 1] / k;
+                    y[i][k] = v[i][k - 1] / k;
+                    z[i][k] = w[i][k - 1] / k;
+                }
+
+                // LOOP 6
+#               ifdef _OPENMP
+#               pragma omp for
+#               endif
+                for (i = 1; i <= num_bodies; i++)
+                {
+                    // LOOP 7
+#                   ifdef _OPENMP
+#                   pragma omp single
+#                   endif                   
+                    {
+                        for (j = 1; j <= num_bodies; j++)
+                        {
+                            X[i][j][k] = x[j][k] - x[i][k];
+                            Y[i][j][k] = y[j][k] - y[i][k];
+                            Z[i][j][k] = z[j][k] - z[i][k];
+                            r[i][j][k] = cauchy_prod(X[i][j], X[i][j], k) + 
+                                            cauchy_prod(Y[i][j], Y[i][j], k) + 
+                                            cauchy_prod(Z[i][j], Z[i][j], k);
+                            b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
+                        }
+                    }
+                    
+
+                    // LOOP 8
+#                   ifdef _OPENMP
+#                   pragma omp single
+#                   endif                   
+                    {
+                        for (j = i + 1; j <= num_bodies; j++)
+                        {
+                            X[i][j][k] = x[j][k] - x[i][k];
+                            Y[i][j][k] = y[j][k] - y[i][k];
+                            Z[i][j][k] = z[j][k] - z[i][k];
+                            r[i][j][k] = cauchy_prod(X[i][j], X[i][j], k) + 
+                                            cauchy_prod(Y[i][j], Y[i][j], k) + 
+                                            cauchy_prod(Z[i][j], Z[i][j], k);
+                            b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
+                        }
+                    }
+                }
                 
-                // LOOP 10
-                for (int j = 1; j <= i - 1; j++)
-                {
-                    u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
-                    v[i][k] += mass[j] * cauchy_prod(Y[i][j], b[i][j], k - 1);
-                    w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
-                }
+#               ifdef _OPENMP
+#               pragma omp barrier
+#               endif   
                 
-                // LOOP 11
-                for (int j = i + 1; j <= num_bodies; j++)
+                // LOOP 9
+                for (i = 1; i <= num_bodies; i++)
                 {
-                    u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
-                    v[i][k] += mass[j] * cauchy_prod(Y[i][j], b[i][j], k - 1);
-                    w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
+                    u[i][k] = 0;
+                    v[i][k] = 0;
+                    w[i][k] = 0;
+                    
+                    // LOOP 10
+                    for (j = 1; j <= i - 1; j++)
+                    {
+                        u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
+                        v[i][k] += mass[j] * cauchy_prod(Y[i][j], b[i][j], k - 1);
+                        w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
+                    }
+                    
+                    // LOOP 11
+                    for (int j = i + 1; j <= num_bodies; j++)
+                    {
+                        u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
+                        v[i][k] += mass[j] * cauchy_prod(Y[i][j], b[i][j], k - 1);
+                        w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
+                    }
+                    
+                    u[i][k] = u[i][k] / k;
+                    v[i][k] = v[i][k] / k;
+                    w[i][k] = w[i][k] / k;
                 }
-                
-                u[i][k] = u[i][k] / k;
-                v[i][k] = v[i][k] / k;
-                w[i][k] = w[i][k] / k;
             }
         }
 
         // Determine the values of the Maclaurin polynomial using Horner's algorithm and the
         // stored Maclauren coefficients
-        for (int i = 1; i <= num_bodies; i++)
+                        
+#       ifdef _OPENMP
+#       pragma omp barrier
+#       pragma omp parallel
+#       endif   
+        
         {
-            x_psm = horner_value(x[i], time_step, mac_degree);
-            x[i][0] = x_psm;
-            
-            y_psm = horner_value(y[i], time_step, mac_degree);
-            y[i][0] = y_psm;
-            
-            z_psm = horner_value(z[i], time_step, mac_degree);
-            z[i][0] = z_psm;
-            
-            u_psm = horner_value(u[i], time_step, mac_degree);
-            u[i][0] = u_psm;
-            
-            v_psm = horner_value(v[i], time_step, mac_degree);
-            v[i][0] = v_psm;
-            
-            w_psm = horner_value(w[i], time_step, mac_degree);
-            w[i][0] = w_psm;
+#           ifdef _OPENMP
+#           pragma omp for
+#           endif 
+            for (i = 1; i <= num_bodies; i++)
+            {
+                x_psm = horner_value(x[i], time_step, mac_degree);
+                x[i][0] = x_psm;
+                
+                y_psm = horner_value(y[i], time_step, mac_degree);
+                y[i][0] = y_psm;
+                
+                z_psm = horner_value(z[i], time_step, mac_degree);
+                z[i][0] = z_psm;
+                
+                u_psm = horner_value(u[i], time_step, mac_degree);
+                u[i][0] = u_psm;
+                
+                v_psm = horner_value(v[i], time_step, mac_degree);
+                v[i][0] = v_psm;
+                
+                w_psm = horner_value(w[i], time_step, mac_degree);
+                w[i][0] = w_psm;
+            }
         }
+        
 
         // Output the step number based on the output granularity
         if (step % granularity == 0)
         {   
             if (debug) 
             {
-                for (int i = 1; i <= num_bodies; i++)
+                for (i = 1; i <= num_bodies; i++)
                 {
                     printf("body %d: x: %lf\ty: %lf\tz: %lf\n", i, x[i][0], y[i][0], z[i][0]);
                 }
@@ -439,7 +503,7 @@ double perform_calculation(FILE *in_file)
         
         if (output)
         {
-            for (int i = 0; i < num_bodies; i++)
+            for (i = 0; i < num_bodies; i++)
             {
                 fprintf(body_output[i + 1], "x: %lf\ty: %lf\tz: %lf\n", x[i][0], y[i][0], z[i][0]);
             }
