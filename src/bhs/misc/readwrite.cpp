@@ -79,9 +79,12 @@ std::pair<std::vector<Body>, int> read_bodies(const char * filename, MPI_Comm co
  
 		// reset variables
 		current_line = 0;
-		printf("Read in n-body %d.\n", current_body++);
+                current_body++;
+		//printf("Read in n-body %d.\n", current_body++);
             }
          }
+
+         printf("Read %ld nbodies from file.\n", current_body);
     } else {
         printf("There was an error reading from the input file. Please check that it is formatted correctly.\n");
         // TODO: Quit?	
