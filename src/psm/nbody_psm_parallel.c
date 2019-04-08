@@ -110,9 +110,7 @@ double cauchy_prod(double a[], double b[], int n)
 double horner_value(double c[], double t, int n)
 {
     double sum = c[n - 1] + (t * c[n]);
-#   ifdef _OPENMP
-#   pragma omp parallel for
-#   endif
+
     for (int i = n - 2; i >= 0; i--)
     {
         sum = c[i] + t * sum;
@@ -252,18 +250,11 @@ double perform_calculation(FILE *in_file)
         u[i][0] = tmp[4];
         v[i][0] = tmp[5];
         w[i][0] = tmp[6];
-
-        printf("Body %d\n", i);
-        printf("Mass: %f\n", mass[i]);
-        printf("x: %f\ty: %f\tz: %f\n", x[i][0], y[i][0], z[i][0]);
-        printf("u: %f\tv: %f\tw: %f\n", u[i][0], v[i][0], w[i][0]);
-        printf("\n");
-        
     }
 
-    // TODO: Replace hard coded values with values read from input file
 
-	/*    Set up the initial positions and velocities  */
+
+    /* Set up the initial positions and velocities  */
     if (verbose) 
     {
         printf("Initial Body States:\n");   
@@ -320,14 +311,8 @@ double perform_calculation(FILE *in_file)
         }
 
         // Begin parallel region
-#       ifdef _OPENMP 
-#       pragma omp parallel
-#       endif
         {   
             // LOOP 1
-#           ifdef _OPENMP
-#           pragma omp for
-#           endif
             for (i = 1; i <= num_bodies; i++)
             {
                 // LOOP 2
@@ -350,10 +335,6 @@ double perform_calculation(FILE *in_file)
                     b[i][j][0] = pow(r[i][j][0], -1.5);
                 }
             }
-            
-#           ifdef _OPENMP
-#           pragma omp barrier
-#           endif
 
             // LOOP 4
             for (k = 1; k <= mac_degree; k++)
@@ -369,10 +350,7 @@ double perform_calculation(FILE *in_file)
                 // LOOP 6
                 for (i = 1; i <= num_bodies; i++)
                 {
-                    // LOOP 7
-#                   ifdef _OPENMP
-#                   pragma omp single
-#                   endif                   
+                    // LOOP 7            
                     {
                         for (j = 1; j <= num_bodies; j++)
                         {
@@ -387,10 +365,7 @@ double perform_calculation(FILE *in_file)
                     }
                     
 
-                    // LOOP 8
-#                   ifdef _OPENMP
-#                   pragma omp single
-#                   endif                   
+                    // LOOP 8               
                     {
                         for (j = i + 1; j <= num_bodies; j++)
                         {
@@ -403,11 +378,7 @@ double perform_calculation(FILE *in_file)
                             b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
                         }
                     }
-                }
-                
-#               ifdef _OPENMP
-#               pragma omp barrier
-#               endif   
+                }   
                 
                 // LOOP 9
                 for (i = 1; i <= num_bodies; i++)
@@ -443,7 +414,6 @@ double perform_calculation(FILE *in_file)
         // stored Maclauren coefficients
                         
 #       ifdef _OPENMP
-#       pragma omp barrier
 #       pragma omp parallel
 #       endif   
         
@@ -520,7 +490,11 @@ int main(int argc, char *argv[])
     // Get command line arguments
     int c;
     double time;
+    int num_threads = 1;
 
+#   ifdef _OPENMP
+    num_threads = omp_get_max_threads();
+#   endif
     
     while ((c = getopt(argc, argv, "dg:hn:ot:Tv")) != -1) 
     {
@@ -602,7 +576,7 @@ int main(int argc, char *argv[])
     
     if (timer)
     {
-        printf("Bodies: %d\tCalculation: %0.4fs\n", num_bodies, time);
+        printf("NUM_THREADS: %d\tBODIES: %d\tTIME: %0.4fs\n",num_threads, num_bodies, time);
     }
     
     if (debug)

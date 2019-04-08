@@ -245,7 +245,7 @@ double perform_calculation(FILE *in_file)
 
         }
 
-        /*
+        
         mass[i] = tmp[0];
         x[i][0] = tmp[1];
         y[i][0] = tmp[2];
@@ -253,12 +253,11 @@ double perform_calculation(FILE *in_file)
         u[i][0] = tmp[4];
         v[i][0] = tmp[5];
         w[i][0] = tmp[6];
-        */
+        
     }
 
-    // TODO: Replace hard coded valyes with values read from input file
 
-	/*    Set up the initial positions and velocities  */
+    /*    Set up the initial positions and velocities  */
     if (verbose) 
     {
         printf("Initial Body States:\n");   
@@ -272,21 +271,23 @@ double perform_calculation(FILE *in_file)
         }
     }
     
-    if (debug)
+    if(output)
     {
-        printf("Opening files for output\n\n");
-    }
-    
-    for (int i = 0; i < num_bodies; i++)
-    {
-        sprintf(outfile_name, "body%04d", i+1);
-        if ((body_output[i + 1] = fopen(outfile_name, "w")) == NULL)
+        if (debug)
         {
-            printf("Output File %s could not be opened for writing: %s\n", outfile_name,
-                strerror(errno));
+            printf("Opening files for output\n\n");
+        }
+    
+        for (int i = 0; i < num_bodies; i++)
+        {
+            sprintf(outfile_name, "body%04d", i+1);
+            if ((body_output[i + 1] = fopen(outfile_name, "w")) == NULL)
+            {
+                printf("Output File %s could not be opened for writing: %s\n", outfile_name,
+                    strerror(errno));
+            }
         }
     }
-    
     if (verbose)
     {
         printf("Time step: %f\n", time_step);
