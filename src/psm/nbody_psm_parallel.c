@@ -331,9 +331,6 @@ double perform_calculation(FILE *in_file)
             for (i = 1; i <= num_bodies; i++)
             {
                 // LOOP 2
-#               ifdef _OPENMP
-#               pragma omp for
-#               endif
                 for(j = 1; j <= i - 1; j++)
                 {
                     X[i][j][0] = x[j][0] - x[i][0];
@@ -344,9 +341,6 @@ double perform_calculation(FILE *in_file)
                 }
 
                 // LOOP 3
-#               ifdef _OPENMP
-#               pragma omp for
-#               endif
                 for (j = i + 1; j < num_bodies; j++)
                 {
                     X[i][j][0] = x[j][0] - x[i][0];
@@ -367,10 +361,7 @@ double perform_calculation(FILE *in_file)
 #           endif
             for (k = 1; k <= mac_degree; k++)
             {
-                // LOOP 5
-#               ifdef _OPENMP
-#               pragma omp for
-#               endif                
+                // LOOP 5              
                 for (i = 1; i <= num_bodies; i++)
                 {
                     x[i][k] = u[i][k - 1] / k;
@@ -379,9 +370,6 @@ double perform_calculation(FILE *in_file)
                 }
 
                 // LOOP 6
-#               ifdef _OPENMP
-#               pragma omp for
-#               endif
                 for (i = 1; i <= num_bodies; i++)
                 {
                     // LOOP 7
