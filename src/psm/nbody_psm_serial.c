@@ -445,6 +445,14 @@ double perform_calculation(FILE *in_file)
         }
     }
     STOP_TIMER(psm)
+
+    if (verbose)
+    {
+        for (int i = 1; i <= num_bodies; i++)
+        {
+            printf("body %d: x: %lf\ty: %lf\tz: %lf\n", i, x[i][0], y[i][0], z[i][0]);
+        } 
+    }
     return GET_TIMER(psm);
 
 }
