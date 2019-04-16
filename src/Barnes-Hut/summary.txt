@@ -1,0 +1,11 @@
+number of processes: 8
+number of bodies: 512
+read bodies from file: ../../Input_Generation/input_files/input_512_bhs.in
+barnes hut approximaiton constant (theta): 1
+gravitational constant (G): 1
+number of time steps: 10000
+time step: 1
+sampling interval: 10
+output file with positions: none
+output file with tree: none
+output file with running times: ../time.txt

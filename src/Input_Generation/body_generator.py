@@ -5,12 +5,16 @@ import getopt
 
 def main():
 
-    file_name = "nbody_input_"
+    file_name = "nbody_input"
 
     swarm = False
     psm = False
     bhs = False
     fmm = False
+
+    if len(sys.argv) < 2:
+        usage()
+        sys.exit(1)
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], "abfho:ps", ["all", "help", "output=", "swarm"])
@@ -44,10 +48,11 @@ def main():
     
     if swarm:
         print("Generating {} bodies as a swarm".format(num_bodies))
+        file_name += "_swarm"
     else:
         print("Generating {} bodies".format(num_bodies))
 
-    file_name += str(num_bodies)
+    file_name += "_" + str(num_bodies)
 
     lim = [-10 * num_bodies**(1/3), 10 * num_bodies**(1/3)]
 
@@ -60,15 +65,16 @@ def main():
     for i in range(num_bodies):
         bodies.append([random.uniform(*lim) for i in range(7)])
 
-    for b in bodies:
-        print(b)
+
+    if not swarm:
+        num_bodies += 1
 
     if bhs:
-        print("\nCreating BHS Input File")
+        print("\nWriting BHS Input File")
         output_bhs(bodies, file_name)
 
     if psm:
-        print("\nCreating PSM Input File")
+        print("\nWriting PSM Input File\n")
         output_psm(num_bodies, bodies, file_name)
 
 def output_bhs(bodies, prefix):
@@ -126,8 +132,16 @@ def output_psm(num_bodies, bodies, prefix):
     f.close()
 
 def usage():
-    print("Usage: {} [so]".format(sys.argv[0]))
-    print("\t-s: generates a swarm based")
+    print("Usage: {} [options] num_bodies".format(sys.argv[0]))
+    print("Options:")
+    print("\t-a --all: Generates a file for all supported file types. Equivalent to -bfp")
+    print("\t-b: outputs a file for the supported Barnes-Hut Simulation Implementation")
+    print("\t-b: outputs a file for the supported Fast-Multipole Method Implementation")
+    print("\t-h --help: display the usage")
+    print("\t-o --output: [filename]: Determine the file name prefix for the output file")
+    print("\t-p: outputs a file for the supported Parker-Sochaki Method Implementation")
+    print("\t-s --swarm: generates a swarm based system of bodies")
+
 
 if __name__ == "__main__":
     main()
