@@ -66,7 +66,7 @@ double time_step = DEFAULT_TS;          // Time step
 int num_ts = DEFAULT_NUM;               // Number of time steps
 int granularity = DEFAULT_GRANULARITY;  // Output granularity (in time steps)
 int mac_degree = MAC_DEGREE;            // Degree of maclaurin polynomials
-int num_bodies = NUM_BODIES;            // Number of bodies
+int num_bodies = 0;                     // Number of bodies
 
 bool debug = false;
 bool verbose = false;
@@ -264,7 +264,7 @@ double perform_calculation(FILE *in_file)
         for (int i = 1; i <= 10; i++)
         {
             printf("Body %d\n", i);
-            printf("Mass: %f\n", mass[i]);
+            printf("Mass: %e\n", mass[i]);
             printf("x: %f\ty: %f\tz: %f\n", x[i][0], y[i][0], z[i][0]);
             printf("u: %f\tv: %f\tw: %f\n", u[i][0], v[i][0], w[i][0]);
             printf("\n");
@@ -291,6 +291,7 @@ double perform_calculation(FILE *in_file)
     if (verbose)
     {
         printf("Time step: %f\n", time_step);
+        printf("Maclauren Polynomial Degree %d\n", mac_degree);
         printf("Number of time steps: %d\n", num_ts);
         printf("Granularity: %d\n\n", granularity);
     }
@@ -480,7 +481,7 @@ int main(int argc, char *argv[])
     double time;
 
     
-    while ((c = getopt(argc, argv, "dg:hn:ot:Tv")) != -1) 
+    while ((c = getopt(argc, argv, "dg:hm:n:ot:Tv")) != -1) 
     {
         switch (c) 
         {
@@ -495,7 +496,10 @@ int main(int argc, char *argv[])
             exit(EXIT_FAILURE);    
         case 'o':
             output = true;
-            break;   
+            break;  
+        case 'm':
+            mac_degree = atoi(optarg);
+            break;
         case 'n':
             num_ts = atoi(optarg);
             break;
@@ -513,8 +517,6 @@ int main(int argc, char *argv[])
             exit(EXIT_FAILURE);
         }
     }
-    
-    
 
     if (optind != argc - 1)
     {
@@ -560,7 +562,7 @@ int main(int argc, char *argv[])
     
     if (timer)
     {
-        printf("Bodies: %d\tCalculation: %0.4fs\n", num_bodies, time);
+        printf("BODIES: %d\tTIME: %0.4fs\n", num_bodies, time);
     }
     
     if (debug)

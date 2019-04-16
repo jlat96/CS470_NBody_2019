@@ -3,11 +3,10 @@
  *
  */
 
-#define DEFAULT_TS pow(2, -8)       // Default time step
+#define DEFAULT_TS 0.00390625       // Default time step
 #define DEFAULT_NUM 100000          // Defailt number of time steps
 #define DEFAULT_GRANULARITY 1000    // Default output granularity
 #define MAC_DEGREE 8                // Degree of Maclaurin polyomials
-#define NUM_BODIES 10               // Number of Bodies
 
 // timing macros (must first declare "struct timeval tv")
 #define START_TIMER(NAME) gettimeofday(&tv, NULL); \

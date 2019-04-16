@@ -10,7 +10,8 @@ mac=3
 
 make
 
-echo "$ts Time Steps - Degree of $mac"
+echo
+echo "$ts Time Steps - Maclaurin Degree of $mac"
 echo
 
 echo "Serial Wall Times"

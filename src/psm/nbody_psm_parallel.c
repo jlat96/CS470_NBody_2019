@@ -67,7 +67,7 @@ double time_step = DEFAULT_TS;          // Time step
 int num_ts = DEFAULT_NUM;               // Number of time steps
 int granularity = DEFAULT_GRANULARITY;  // Output granularity (in time steps)
 int mac_degree = MAC_DEGREE;            // Degree of maclaurin polynomials
-int num_bodies = NUM_BODIES;            // Number of bodies
+int num_bodies = 0;                     // Number of bodies
 
 bool debug = false;
 bool verbose = false;
@@ -289,6 +289,7 @@ double perform_calculation(FILE *in_file)
     if (verbose)
     {
         printf("Time step: %f\n", time_step);
+        printf("Maclauren Polynomial Degree %d\n", mac_degree);
         printf("Number of time steps: %d\n", num_ts);
         printf("Granularity: %d\n\n", granularity);
     }
@@ -302,56 +303,59 @@ double perform_calculation(FILE *in_file)
 
     START_TIMER(psm)
 
-    for (step = 0; step <= num_ts; step++)
     {
-        if (debug || verbose)
+        for (step = 0; step <= num_ts; step++)
         {
-            if (step % granularity == 0)
-                printf("Step %d\n", step);
-        }
-
-        // Begin parallel region
-        {   
-            // LOOP 1
-            for (i = 1; i <= num_bodies; i++)
+#           ifdef _OPENMP
+#           pragma omp parallel
+#           endif
             {
-                // LOOP 2
-                for(j = 1; j <= i - 1; j++)
+                if (debug || verbose)
                 {
-                    X[i][j][0] = x[j][0] - x[i][0];
-                    Y[i][j][0] = y[j][0] - y[i][0];
-                    Z[i][j][0] = z[j][0] - z[i][0];
-                    r[i][j][0] = pow(X[i][j][0], 2) + pow(Y[i][j][0], 2) + pow(Z[i][j][0], 2);
-                    b[i][j][0] = pow(r[i][j][0], -1.5);
+                    if (step % granularity == 0)
+                        printf("Step %d\n", step);
                 }
 
-                // LOOP 3
-                for (j = i + 1; j < num_bodies; j++)
-                {
-                    X[i][j][0] = x[j][0] - x[i][0];
-                    Y[i][j][0] = y[j][0] - y[i][0];
-                    Z[i][j][0] = z[j][0] - z[i][0];
-                    r[i][j][0] = pow(X[i][j][0], 2) + pow(Y[i][j][0], 2) + pow(Z[i][j][0], 2);
-                    b[i][j][0] = pow(r[i][j][0], -1.5);
-                }
-            }
-
-            // LOOP 4
-            for (k = 1; k <= mac_degree; k++)
-            {
-                // LOOP 5              
+                // LOOP 1 - Parallelizable on Loops 2 and 3
                 for (i = 1; i <= num_bodies; i++)
                 {
-                    x[i][k] = u[i][k - 1] / k;
-                    y[i][k] = v[i][k - 1] / k;
-                    z[i][k] = w[i][k - 1] / k;
-                }
-
-                // LOOP 6
-                for (i = 1; i <= num_bodies; i++)
-                {
-                    // LOOP 7            
+                    // LOOP 2
+                    for(j = 1; j <= i - 1; j++)
                     {
+                        X[i][j][0] = x[j][0] - x[i][0];
+                        Y[i][j][0] = y[j][0] - y[i][0];
+                        Z[i][j][0] = z[j][0] - z[i][0];
+                        r[i][j][0] = pow(X[i][j][0], 2) + pow(Y[i][j][0], 2) + pow(Z[i][j][0], 2);
+                        b[i][j][0] = pow(r[i][j][0], -1.5);
+                    }
+
+                    // LOOP 3
+                    for (j = i + 1; j < num_bodies; j++)
+                    {
+                        X[i][j][0] = x[j][0] - x[i][0];
+                        Y[i][j][0] = y[j][0] - y[i][0];
+                        Z[i][j][0] = z[j][0] - z[i][0];
+                        r[i][j][0] = pow(X[i][j][0], 2) + pow(Y[i][j][0], 2) + pow(Z[i][j][0], 2);
+                        b[i][j][0] = pow(r[i][j][0], -1.5);
+                    }
+                }
+
+                // LOOP 4 - May not be worth parallelizing because
+                //          of loops 7 and 8
+                for (k = 1; k <= mac_degree; k++)
+                {
+                    // LOOP 5 - Attempt to parallelize                       
+                    for (i = 1; i <= num_bodies; i++)
+                    {
+                        x[i][k] = u[i][k - 1] / k;
+                        y[i][k] = v[i][k - 1] / k;
+                        z[i][k] = w[i][k - 1] / k;
+                    }
+
+                    // LOOP 6 - Loops 6 - 8 are not parallelizable    
+                    for (i = 1; i <= num_bodies; i++)
+                    {
+                        // LOOP 7            
                         for (j = 1; j <= num_bodies; j++)
                         {
                             X[i][j][k] = x[j][k] - x[i][k];
@@ -362,11 +366,8 @@ double perform_calculation(FILE *in_file)
                                             cauchy_prod(Z[i][j], Z[i][j], k);
                             b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
                         }
-                    }
-                    
-
-                    // LOOP 8               
-                    {
+                        
+                        // LOOP 8                 
                         for (j = i + 1; j <= num_bodies; j++)
                         {
                             X[i][j][k] = x[j][k] - x[i][k];
@@ -377,96 +378,92 @@ double perform_calculation(FILE *in_file)
                                             cauchy_prod(Z[i][j], Z[i][j], k);
                             b[i][j][k] = cauchy_power(r[i][j], b[i][j], k - 1, -1.5);
                         }
-                    }
-                }   
-                
-                // LOOP 9
-                for (i = 1; i <= num_bodies; i++)
-                {
-                    u[i][k] = 0;
-                    v[i][k] = 0;
-                    w[i][k] = 0;
-                    
-                    // LOOP 10
-                    for (j = 1; j <= i - 1; j++)
-                    {
-                        u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
-                        v[i][k] += mass[j] * cauchy_prod(Y[i][j], b[i][j], k - 1);
-                        w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
-                    }
-                    
-                    // LOOP 11
-                    for (int j = i + 1; j <= num_bodies; j++)
-                    {
-                        u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
-                        v[i][k] += mass[j] * cauchy_prod(Y[i][j], b[i][j], k - 1);
-                        w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
-                    }
-                    
-                    u[i][k] = u[i][k] / k;
-                    v[i][k] = v[i][k] / k;
-                    w[i][k] = w[i][k] / k;
-                }
-            }
-        }
-
-        // Determine the values of the Maclaurin polynomial using Horner's algorithm and the
-        // stored Maclauren coefficients
                         
-#       ifdef _OPENMP
-#       pragma omp parallel
-#       endif   
-        
-        {
-#           ifdef _OPENMP
-#           pragma omp for
-#           endif 
-            for (i = 1; i <= num_bodies; i++)
-            {
-                x_psm = horner_value(x[i], time_step, mac_degree);
-                x[i][0] = x_psm;
-                
-                y_psm = horner_value(y[i], time_step, mac_degree);
-                y[i][0] = y_psm;
-                
-                z_psm = horner_value(z[i], time_step, mac_degree);
-                z[i][0] = z_psm;
-                
-                u_psm = horner_value(u[i], time_step, mac_degree);
-                u[i][0] = u_psm;
-                
-                v_psm = horner_value(v[i], time_step, mac_degree);
-                v[i][0] = v_psm;
-                
-                w_psm = horner_value(w[i], time_step, mac_degree);
-                w[i][0] = w_psm;
-            }
-        }
-        
+                    }   
+                    
+                    // LOOP 9 - Not Parallalizable
+                    for (i = 1; i <= num_bodies; i++)
+                    {
+                        u[i][k] = 0;
+                        v[i][k] = 0;
+                        w[i][k] = 0;
+                        
+                        // LOOP 10
+                        for (j = 1; j <= i - 1; j++)
+                        {
+                            u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
+                            v[i][k] += mass[j] * cauchy_prod(Y[i][j], b[i][j], k - 1);
+                            w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
+                        }
+                        
+                        // LOOP 11
+                        for (int j = i + 1; j <= num_bodies; j++)
+                        {
+                            u[i][k] += mass[j] * cauchy_prod(X[i][j], b[i][j], k - 1);
+                            v[i][k] += mass[j] * cauchy_prod(Y[i][j], b[i][j], k - 1);
+                            w[i][k] += mass[j] * cauchy_prod(Z[i][j], b[i][j], k - 1);
+                        }
+                        
+                        u[i][k] = u[i][k] / k;
+                        v[i][k] = v[i][k] / k;
+                        w[i][k] = w[i][k] / k;
+                    }
+                }
+            
 
-        // Output the step number based on the output granularity
-        if (step % granularity == 0)
-        {   
-            if (debug) 
-            {
+                // Determine the values of the Maclaurin polynomial using Horner's algorithm and the
+                // stored Maclauren coefficients 
+                
+#               ifdef _OPENMP
+#               pragma omp for
+#               endif 
+                // Loop 12 - Parallelizable
                 for (i = 1; i <= num_bodies; i++)
                 {
-                    printf("body %d: x: %lf\ty: %lf\tz: %lf\n", i, x[i][0], y[i][0], z[i][0]);
+                    x_psm = horner_value(x[i], time_step, mac_degree);
+                    x[i][0] = x_psm;
+                    
+                    y_psm = horner_value(y[i], time_step, mac_degree);
+                    y[i][0] = y_psm;
+                    
+                    z_psm = horner_value(z[i], time_step, mac_degree);
+                    z[i][0] = z_psm;
+                    
+                    u_psm = horner_value(u[i], time_step, mac_degree);
+                    u[i][0] = u_psm;
+                    
+                    v_psm = horner_value(v[i], time_step, mac_degree);
+                    v[i][0] = v_psm;
+                    
+                    w_psm = horner_value(w[i], time_step, mac_degree);
+                    w[i][0] = w_psm;
+                }
+            } 
+
+            // Output the step number based on the output granularity
+            if (step % granularity == 0)
+            {   
+                if (debug) 
+                {
+                    for (i = 1; i <= num_bodies; i++)
+                    {
+                        printf("body %d: x: %lf\ty: %lf\tz: %lf\n", i, x[i][0], y[i][0], z[i][0]);
+                    }
+                }
+            }
+            
+            if (output)
+            {
+                for (i = 0; i < num_bodies; i++)
+                {
+                    fprintf(body_output[i + 1], "x: %lf\ty: %lf\tz: %lf\n", x[i][0], y[i][0], z[i][0]);
                 }
             }
         }
         
-        if (output)
-        {
-            for (i = 0; i < num_bodies; i++)
-            {
-                fprintf(body_output[i + 1], "x: %lf\ty: %lf\tz: %lf\n", x[i][0], y[i][0], z[i][0]);
-            }
-        }
     }
     STOP_TIMER(psm)
     return GET_TIMER(psm);
-
 }
 
 /*
@@ -474,7 +471,7 @@ double perform_calculation(FILE *in_file)
  */
 void usage(char *argv[])
 {
-    printf("Usage: %s [-dghntTv]\n", argv[0]);
+    printf("Usage: %s [-dghmnotTv]\n", argv[0]);
     printf("\t-d: Print debug output\n");
     printf("\t-g: Specify the granularity of the output (how often to report new state)\n");
     printf("\t-h: Print usage\n");
@@ -496,7 +493,7 @@ int main(int argc, char *argv[])
     num_threads = omp_get_max_threads();
 #   endif
     
-    while ((c = getopt(argc, argv, "dg:hn:ot:Tv")) != -1) 
+    while ((c = getopt(argc, argv, "dg:hm:n:ot:Tv")) != -1) 
     {
         switch (c) 
         {
@@ -511,7 +508,10 @@ int main(int argc, char *argv[])
             exit(EXIT_FAILURE);    
         case 'o':
             output = true;
-            break;   
+            break;  
+        case 'm':
+            mac_degree = atoi(optarg);
+            break; 
         case 'n':
             num_ts = atoi(optarg);
             break;
@@ -530,8 +530,6 @@ int main(int argc, char *argv[])
         }
     }
     
-    
-
     if (optind != argc - 1)
     {
         usage(argv);
