@@ -53,8 +53,9 @@ def main():
 
     bodies = []
     
-    if swarm:
+    if not swarm:
         bodies.append([1, 0, 0, 0, 0, 0, 0]) 
+        num_bodies -= 1
 
     for i in range(num_bodies):
         bodies.append([random.uniform(*lim) for i in range(7)])
@@ -92,12 +93,20 @@ def output_bhs(bodies, prefix):
     
 
 def output_fmm(bodies, prefix):
+    """
+    Writes the specified bodies to an output file that can be parsed
+    by the the Fast-Multipole Methon program
+    :param: num_bodies: The number of bodies being written
+    :param: bodies: The bodies to output
+    :param: prefix: The prefix for the output file name
+    """
     pass
     
 
 def output_psm(num_bodies, bodies, prefix):
     """
-    Writes the specified bodies to an output file
+    Writes the specified bodies to an output file that can be parsed
+    by the Parker-Sochaki Method Program
     :param: num_bodies: The number of bodies being written
     :param: bodies: The bodies to output
     :param: prefix: The prefix for the output file name
