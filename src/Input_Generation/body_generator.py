@@ -90,7 +90,7 @@ def output_bhs(bodies, prefix):
     f = open(f_name, "w")
     
     for b in bodies:
-        for c in b[0:3]:
+        for c in b[1:4]:
             f.write(str(c) + " ")
         f.write("0 0 0 1")
         f.write("\n")
@@ -121,13 +121,16 @@ def output_psm(num_bodies, bodies, prefix):
     f_name = prefix + "_psm.in"
     f = open(f_name, "w")
 
-    f.write(str(num_bodies))
+    f.write(" " + str(num_bodies))
     f.write("\n")
-
+    f.write(" " + str(28))
+    f.write("\n")
+    f.write(" 0.E+0,  0.5D0, -.025")
+    f.write("\n")
+    f.write(" -1.0E-14, .F.")
     for b in bodies:
-        for e in b:
-            f.write(str(e))
-            f.write("\n")
+        # body    mass     x1        x2         x3       v1         v2       v3
+        f.write("  {0:0.6f} {0:0.6f} {0:0.6f} {0:0.6f} {0:0.6f} {0:0.6f}".format(b[0], b[1], b[2], b[3], b[4], b[5], b[6]))
 
     f.close()
 
