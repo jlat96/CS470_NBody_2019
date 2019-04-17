@@ -128,10 +128,10 @@ def output_psm(num_bodies, bodies, prefix):
     f.write(" 0.E+0,  0.5D0, -.025")
     f.write("\n")
     f.write(" -1.0E-14, .F.")
+    f.write("\n")
     for b in bodies:
         # body    mass     x1        x2         x3       v1         v2       v3
-        f.write("  {0:0.6f} {0:0.6f} {0:0.6f} {0:0.6f} {0:0.6f} {0:0.6f}".format(b[0], b[1], b[2], b[3], b[4], b[5], b[6]))
-
+        f.write("  {0:0.6f}\t{0:0.6f}\t{0:0.6f}\t{0:0.6f}\t{0:0.6f}\t{0:0.6f}\n".format(b[0], b[1], b[2], b[3], b[4], b[5], b[6]))
     f.close()
 
 def usage():
