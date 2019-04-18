@@ -17,6 +17,10 @@
 #include "resetOctree.h"
 #include "timing.h"
 
+#ifdef _OPENMP
+    #include <omp.h>
+#endif
+
 //UNITS
 //Mass   : Earth Mass
 //Length : AU (astronomical unit)
@@ -50,13 +54,20 @@ vector BDCOM; // center of mass of bodies
 region octree;
 
 
+// calculates center of mass
 vector getCoM(planet *BD)
 {
     vector com; com.x=0; com.y=0; com.z=0;
-    int i; double mTot=0;
-    for(i=0; i<N; i++)
+    double mTot=0;
+#   pragma omp parallel for reduction(+:mTot) default(none) shared(N, com, BD)
+    for(int i=0; i<N; i++)
     {
-        com = com + BD[i].pos*BD[i].m;
+#       pragma omp atomic
+        com.x += BD[i].pos.x*BD[i].m;
+#       pragma omp atomic
+        com.y += BD[i].pos.y*BD[i].m;
+#       pragma omp atomic
+        com.z += BD[i].pos.z*BD[i].m;
         mTot += BD[i].m;
     }
     com = com / mTot;
@@ -70,19 +81,17 @@ void setL(planet *BD, vector com)
 	//Set L based on particle locations, choosing twice the largest single coordinate relative to center of mass (assuming CoM was properly set to 0,0,0 in initialize.c
 	//FIXME what do we do if particle leave region 0? Maybe make a new list separate from the region list to keep track of those?
 	//FIXME Should do magnitudes
-	int i;
-	double xmax=0, ymax=0, zmax=0;
-	for(i=0; i<N; i++)
+	double max;
+    // does not make sense to parallelize since max could be modified so often
+    // that all benefits of parallelization would be cancelled out by constantly
+    // locking and unlocking
+	for(int i=0; i<N; i++)
 	{
-        if( fabs(BD[i].pos.x - com.x) > xmax) xmax = fabs(BD[i].pos.x - com.x);
-        if( fabs(BD[i].pos.y - com.y) > ymax) ymax = fabs(BD[i].pos.y - com.y);
-        if( fabs(BD[i].pos.z - com.z) > zmax) zmax = fabs(BD[i].pos.z - com.z);
+        if( fabs(BD[i].pos.x - com.x) > max) max = fabs(BD[i].pos.x - com.x);
+        if( fabs(BD[i].pos.y - com.y) > max) max = fabs(BD[i].pos.y - com.y);
+        if( fabs(BD[i].pos.z - com.z) > max) max = fabs(BD[i].pos.z - com.z);
     }
-	L=xmax;
-	if(ymax > L) L=ymax;
-	if(zmax > L) L=zmax;
-    
-	L*=4;//Before this line, L was the largest single coordinate of a particle. We will center region 0 at 0,0,0 and we want it to be sixteen times as large on every side as the furthest particle
+	L=max * 4;//  max is the largest single coordinate of a particle. We will center region 0 at 0,0,0 and we want it to be sixteen times as large on every side as the furthest particle
 }
 
 
@@ -172,12 +181,15 @@ int main(int nParam, char **paramList)
     
     for(i=0;i<100;i++) proclist[i]=0;
     
+    //TODO add timer code and compare to serial version
     Initialize(BD, scatter, v, r_i);
     if (debug) {
         printf("!Done intializing planets\n");
     }
     
+    //TODO add timer code and compare to serial version
     BDCOM = getCoM(BD);
+    
     setL(BD, BDCOM);
     if (debug) {
         printf("!fmm.c: L = %1.3e\n", L);
@@ -191,8 +203,12 @@ int main(int nParam, char **paramList)
     octree.location.y = BDCOM.y-L/2.0;
     octree.location.z = BDCOM.z-L/2.0;
     
+        
+    //TODO add timer code and compare to serial version
     M_init = Mass(BD);
+    //TODO add timer code and compare to serial version
     E_init = Energy(BD);
+    //TODO add timer code and compare to serial version
     P_init = Momentum(BD);
     
     M_curr = M_init;
@@ -202,7 +218,7 @@ int main(int nParam, char **paramList)
     if (debug) {
         printf("!fmm.c: Done everything before the time loop\n");
     }
-    for( t=0; t < t_end; t+=dt )
+    for( t=0; t <= t_end; t+=dt )
     {  
         if(t!=0) resetOctree(octree);
         pop_level_0(octree, BD);
@@ -222,9 +238,12 @@ int main(int nParam, char **paramList)
         {
             if( frame % 1 == 0 )
             {
-                E_curr = Energy(BD);
-                P_curr = Momentum(BD);
+                //TODO add timer code and compare to serial version
                 M_curr = Mass(BD);
+                //TODO add timer code and compare to serial version
+                E_curr = Energy(BD);
+                //TODO add timer code and compare to serial version
+                P_curr = Momentum(BD);
             }
                         
             if (debug) {
@@ -235,6 +254,6 @@ int main(int nParam, char **paramList)
         }
         frame++;
     }
-    printf("E(0) = %.2f : E(t) = %.2f : P = %.2f : t = %.2f : Planets = %d : Mass = %.2f\n", E_init, E_curr, P_curr, t, N, M_curr);
+    printf("E(0) = %.2f : E(t) = %.2f : P = %.2f : t = %.2f : Planets = %d : Mass = %.2f\n", E_init, E_curr, P_curr, t - 1, N, M_curr);
     printf("time: %f seconds\n", (clock() - time_start) / (double) CLOCKS_PER_SEC);
 }

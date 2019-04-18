@@ -1,6 +1,6 @@
 #https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html
 CC = g++
-CFLAGS = -O2 -funroll-loops
+CFLAGS = -fopenmp
 INCLUDES = -I/include
 LIBS = -lm
 SRCS = collisions.c exactForce.c fmm.c force.c initialize.c \
