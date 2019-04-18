@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/shared/mpich/include 
+CXX_INCLUDES = -I/usr/include/openmpi-x86_64 
 

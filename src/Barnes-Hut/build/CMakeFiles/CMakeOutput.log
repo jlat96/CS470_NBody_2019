@@ -28,33 +28,33 @@ The CXX compiler identification is GNU, found in "/nfs/home/latinojr/nbody/CS470
 Determining if the C compiler works passed with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_2c1bc/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_2c1bc.dir/build.make CMakeFiles/cmTC_2c1bc.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_4b496/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_4b496.dir/build.make CMakeFiles/cmTC_4b496.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_2c1bc.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_2c1bc.dir/testCCompiler.c.o   -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_2c1bc
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c1bc.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_2c1bc.dir/testCCompiler.c.o  -o cmTC_2c1bc 
+Building C object CMakeFiles/cmTC_4b496.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_4b496.dir/testCCompiler.c.o   -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_4b496
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b496.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_4b496.dir/testCCompiler.c.o  -o cmTC_4b496 
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_0e0a4/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_0e0a4.dir/build.make CMakeFiles/cmTC_0e0a4.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_de454/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_de454.dir/build.make CMakeFiles/cmTC_de454.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc   -v -o CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o   -c /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCCompilerABI.c
+Building C object CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o   -c /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCCompilerABI.c
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 Target: x86_64-redhat-linux
 Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
 Thread model: posix
 gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1 -quiet -v /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o -version -o /tmp/cccKNV7N.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1 -quiet -v /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccWKR2pA.s
 GNU C (GCC) version 4.8.5 20150623 (Red Hat 4.8.5-36) (x86_64-redhat-linux)
 	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-36), GMP version 6.0.0, MPFR version 3.1.1, MPC version 1.0.1
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -70,15 +70,15 @@ GNU C (GCC) version 4.8.5 20150623 (Red Hat 4.8.5-36) (x86_64-redhat-linux)
 	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-36), GMP version 6.0.0, MPFR version 3.1.1, MPC version 1.0.1
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: 9a7a7ea42ab07eb5bf294490e7bbd12f
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
- as -v --64 -o CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o /tmp/cccKNV7N.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o /tmp/ccWKR2pA.s
 GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-34.base.el7
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-Linking C executable cmTC_0e0a4
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e0a4.dir/link.txt --verbose=1
-/usr/bin/cc     -v CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o  -o cmTC_0e0a4 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_de454
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de454.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o  -o cmTC_de454 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
@@ -88,8 +88,8 @@ Thread model: posix
 gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) 
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0e0a4' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0e0a4 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_de454' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_de454 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 
@@ -110,19 +110,19 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_0e0a4/fast ]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_0e0a4.dir/build.make CMakeFiles/cmTC_0e0a4.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_de454/fast ]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_de454.dir/build.make CMakeFiles/cmTC_de454.dir/build]
   ignore line: [gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o   -c /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCCompilerABI.c]
+  ignore line: [Building C object CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o   -c /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCCompilerABI.c]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [Target: x86_64-redhat-linux]
   ignore line: [Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
   ignore line: [Thread model: posix]
   ignore line: [gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-  ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1 -quiet -v /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o -version -o /tmp/cccKNV7N.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1 -quiet -v /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccWKR2pA.s]
   ignore line: [GNU C (GCC) version 4.8.5 20150623 (Red Hat 4.8.5-36) (x86_64-redhat-linux)]
   ignore line: [	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-36), GMP version 6.0.0, MPFR version 3.1.1, MPC version 1.0.1]
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -138,15 +138,15 @@ Parsed C implicit link information from above output:
   ignore line: [	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-36), GMP version 6.0.0, MPFR version 3.1.1, MPC version 1.0.1]
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: 9a7a7ea42ab07eb5bf294490e7bbd12f]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-  ignore line: [ as -v --64 -o CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o /tmp/cccKNV7N.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o /tmp/ccWKR2pA.s]
   ignore line: [GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-34.base.el7]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-  ignore line: [Linking C executable cmTC_0e0a4]
-  ignore line: [/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e0a4.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o  -o cmTC_0e0a4 ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking C executable cmTC_de454]
+  ignore line: [/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de454.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o  -o cmTC_de454 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper]
@@ -156,8 +156,8 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0e0a4' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0e0a4 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_de454' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_de454 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o]
     arg [/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2] ==> ignore
     arg [--build-id] ==> ignore
     arg [--no-add-needed] ==> ignore
@@ -168,7 +168,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_0e0a4] ==> ignore
+    arg [cmTC_de454] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o] ==> ignore
@@ -177,7 +177,7 @@ Parsed C implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../..]
-    arg [CMakeFiles/cmTC_0e0a4.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_de454.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -204,14 +204,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_ffeac/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_ffeac.dir/build.make CMakeFiles/cmTC_ffeac.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_f5217/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_f5217.dir/build.make CMakeFiles/cmTC_f5217.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ffeac.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_ffeac.dir/feature_tests.c.o   -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_ffeac
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ffeac.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_ffeac.dir/feature_tests.c.o  -o cmTC_ffeac 
+Building C object CMakeFiles/cmTC_f5217.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_f5217.dir/feature_tests.c.o   -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f5217
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5217.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_f5217.dir/feature_tests.c.o  -o cmTC_f5217 
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 
@@ -224,14 +224,14 @@ gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barne
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_e20bc/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_e20bc.dir/build.make CMakeFiles/cmTC_e20bc.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_bbd3f/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_bbd3f.dir/build.make CMakeFiles/cmTC_bbd3f.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e20bc.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_e20bc.dir/feature_tests.c.o   -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_e20bc
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e20bc.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_e20bc.dir/feature_tests.c.o  -o cmTC_e20bc 
+Building C object CMakeFiles/cmTC_bbd3f.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_bbd3f.dir/feature_tests.c.o   -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_bbd3f
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bbd3f.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_bbd3f.dir/feature_tests.c.o  -o cmTC_bbd3f 
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 
@@ -244,14 +244,14 @@ gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barne
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_0c450/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_0c450.dir/build.make CMakeFiles/cmTC_0c450.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_19f8c/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_19f8c.dir/build.make CMakeFiles/cmTC_19f8c.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0c450.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_0c450.dir/feature_tests.c.o   -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_0c450
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c450.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_0c450.dir/feature_tests.c.o  -o cmTC_0c450 
+Building C object CMakeFiles/cmTC_19f8c.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_19f8c.dir/feature_tests.c.o   -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_19f8c
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19f8c.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_19f8c.dir/feature_tests.c.o  -o cmTC_19f8c 
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 
@@ -262,33 +262,33 @@ gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barne
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_37cc5/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_37cc5.dir/build.make CMakeFiles/cmTC_37cc5.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_353ef/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_353ef.dir/build.make CMakeFiles/cmTC_353ef.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_37cc5.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_37cc5.dir/testCXXCompiler.cxx.o -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_37cc5
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37cc5.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_37cc5.dir/testCXXCompiler.cxx.o  -o cmTC_37cc5 
+Building CXX object CMakeFiles/cmTC_353ef.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_353ef.dir/testCXXCompiler.cxx.o -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_353ef
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_353ef.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_353ef.dir/testCXXCompiler.cxx.o  -o cmTC_353ef 
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_41f53/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_41f53.dir/build.make CMakeFiles/cmTC_41f53.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_445d7/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_445d7.dir/build.make CMakeFiles/cmTC_445d7.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++    -v -o CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o -c /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp
+Building CXX object CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++    -v -o CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o -c /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 Target: x86_64-redhat-linux
 Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
 Thread model: posix
 gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1plus -quiet -v -D_GNU_SOURCE /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccRSy6HA.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1plus -quiet -v -D_GNU_SOURCE /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccwAEYPk.s
 GNU C++ (GCC) version 4.8.5 20150623 (Red Hat 4.8.5-36) (x86_64-redhat-linux)
 	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-36), GMP version 6.0.0, MPFR version 3.1.1, MPC version 1.0.1
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -307,15 +307,15 @@ GNU C++ (GCC) version 4.8.5 20150623 (Red Hat 4.8.5-36) (x86_64-redhat-linux)
 	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-36), GMP version 6.0.0, MPFR version 3.1.1, MPC version 1.0.1
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: e99666db3d9b415775b0c678f8ba18b7
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- as -v --64 -o CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccRSy6HA.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccwAEYPk.s
 GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-34.base.el7
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-Linking CXX executable cmTC_41f53
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41f53.dir/link.txt --verbose=1
-/usr/bin/c++      -v CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_41f53 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+Linking CXX executable cmTC_445d7
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_445d7.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_445d7 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
@@ -325,8 +325,8 @@ Thread model: posix
 gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) 
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_41f53' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_41f53 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_445d7' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_445d7 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 
@@ -353,19 +353,19 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_41f53/fast ]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_41f53.dir/build.make CMakeFiles/cmTC_41f53.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_445d7/fast ]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_445d7.dir/build.make CMakeFiles/cmTC_445d7.dir/build]
   ignore line: [gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++    -v -o CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o -c /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Building CXX object CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++    -v -o CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o -c /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [Target: x86_64-redhat-linux]
   ignore line: [Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
   ignore line: [Thread model: posix]
   ignore line: [gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1plus -quiet -v -D_GNU_SOURCE /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccRSy6HA.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1plus -quiet -v -D_GNU_SOURCE /nfs/home/latinojr/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccwAEYPk.s]
   ignore line: [GNU C++ (GCC) version 4.8.5 20150623 (Red Hat 4.8.5-36) (x86_64-redhat-linux)]
   ignore line: [	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-36), GMP version 6.0.0, MPFR version 3.1.1, MPC version 1.0.1]
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -384,15 +384,15 @@ Parsed CXX implicit link information from above output:
   ignore line: [	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-36), GMP version 6.0.0, MPFR version 3.1.1, MPC version 1.0.1]
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: e99666db3d9b415775b0c678f8ba18b7]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  ignore line: [ as -v --64 -o CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccRSy6HA.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccwAEYPk.s]
   ignore line: [GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-34.base.el7]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  ignore line: [Linking CXX executable cmTC_41f53]
-  ignore line: [/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41f53.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_41f53 ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking CXX executable cmTC_445d7]
+  ignore line: [/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_445d7.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_445d7 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper]
@@ -402,8 +402,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.8.5/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_41f53' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_41f53 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_445d7' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2 --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_445d7 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../.. CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crtn.o]
     arg [/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/collect2] ==> ignore
     arg [--build-id] ==> ignore
     arg [--no-add-needed] ==> ignore
@@ -414,7 +414,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_41f53] ==> ignore
+    arg [cmTC_445d7] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/crtbegin.o] ==> ignore
@@ -423,7 +423,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../..]
-    arg [CMakeFiles/cmTC_41f53.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_445d7.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -448,14 +448,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1y] compiler features compiled with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_fbd71/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_fbd71.dir/build.make CMakeFiles/cmTC_fbd71.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_86b76/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_86b76.dir/build.make CMakeFiles/cmTC_86b76.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_fbd71.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1y -o CMakeFiles/cmTC_fbd71.dir/feature_tests.cxx.o -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_fbd71
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fbd71.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_fbd71.dir/feature_tests.cxx.o  -o cmTC_fbd71 
+Building CXX object CMakeFiles/cmTC_86b76.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1y -o CMakeFiles/cmTC_86b76.dir/feature_tests.cxx.o -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_86b76
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86b76.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_86b76.dir/feature_tests.cxx.o  -o cmTC_86b76 
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 
@@ -521,14 +521,14 @@ gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barne
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_d2d23/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_d2d23.dir/build.make CMakeFiles/cmTC_d2d23.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_771c8/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_771c8.dir/build.make CMakeFiles/cmTC_771c8.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_d2d23.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_d2d23.dir/feature_tests.cxx.o -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_d2d23
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d2d23.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_d2d23.dir/feature_tests.cxx.o  -o cmTC_d2d23 
+Building CXX object CMakeFiles/cmTC_771c8.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_771c8.dir/feature_tests.cxx.o -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_771c8
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_771c8.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_771c8.dir/feature_tests.cxx.o  -o cmTC_771c8 
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 
@@ -594,14 +594,14 @@ gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barne
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_481fe/fast 
-/usr/bin/gmake -f CMakeFiles/cmTC_481fe.dir/build.make CMakeFiles/cmTC_481fe.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_f3c99/fast 
+/usr/bin/gmake -f CMakeFiles/cmTC_f3c99.dir/build.make CMakeFiles/cmTC_f3c99.dir/build
 gmake[1]: Entering directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_481fe.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_481fe.dir/feature_tests.cxx.o -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_481fe
-/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_481fe.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_481fe.dir/feature_tests.cxx.o  -o cmTC_481fe 
+Building CXX object CMakeFiles/cmTC_f3c99.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_f3c99.dir/feature_tests.cxx.o -c /nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f3c99
+/nfs/home/latinojr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f3c99.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_f3c99.dir/feature_tests.cxx.o  -o cmTC_f3c99 
 gmake[1]: Leaving directory `/nfs/home/latinojr/nbody/CS470_NBody_2019/src/Barnes-Hut/build/CMakeFiles/CMakeTmp'
 
 

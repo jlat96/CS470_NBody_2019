@@ -1,0 +1,109 @@
+Barnes-Hut Timing Results - 10000 Timesteps
+
+Weak Scaling - 8 Processes
+
+4 Bodies
+
+real	0m3.889s
+user	0m28.706s
+sys	0m0.483s
+
+8 Bodies
+
+real	0m4.165s
+user	0m30.858s
+sys	0m0.502s
+
+16 Bodies
+
+real	0m4.859s
+user	0m36.424s
+sys	0m0.508s
+
+32 Bodies
+
+real	0m6.114s
+user	0m46.440s
+sys	0m0.507s
+
+64 Bodies
+
+real	0m8.412s
+user	1m4.846s
+sys	0m0.521s
+
+128 Bodies
+
+real	0m16.286s
+user	2m7.809s
+sys	0m0.491s
+
+256 Bodies
+
+real	0m27.315s
+user	3m36.005s
+sys	0m0.530s
+
+512 Bodies
+
+real	1m15.718s
+user	10m3.193s
+sys	0m0.525s
+
+1024 Bodies
+
+real	2m22.060s
+user	18m53.730s
+sys	0m0.665s
+
+Weak Scaling - 32 Processes
+
+4 Bodies
+
+real	0m24.306s
+user	8m16.323s
+sys	4m24.634s
+
+8 Bodies
+
+real	0m23.960s
+user	8m25.698s
+sys	4m4.546s
+
+16 Bodies
+
+real	0m26.562s
+user	8m57.000s
+sys	4m52.240s
+
+32 Bodies
+
+real	0m27.775s
+user	10m3.946s
+sys	4m28.843s
+
+64 Bodies
+
+real	0m31.530s
+user	11m25.312s
+sys	5m4.843s
+
+128 Bodies
+
+real	0m53.665s
+user	20m20.143s
+sys	7m58.189s
+
+256 Bodies
+
+real	1m2.982s
+user	25m16.380s
+sys	7m59.525s
+
+512 Bodies
+
+real	1m26.496s
+user	36m55.469s
+sys	8m49.923s
+
+1024 Bodies

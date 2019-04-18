@@ -90,7 +90,7 @@ def output_bhs(bodies, prefix):
     f = open(f_name, "w")
     
     for b in bodies:
-        for c in b[1:4]:
+        for c in b[0:3]:
             f.write(str(c) + " ")
         f.write("0 0 0 1")
         f.write("\n")
@@ -152,3 +152,4 @@ def usage():
 
 if __name__ == "__main__":
     main()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
