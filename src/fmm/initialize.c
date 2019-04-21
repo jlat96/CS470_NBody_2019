@@ -23,7 +23,7 @@ void Initialize( planet BD[], double scatter, double v, double r_i ){
     vcm.y = 0;
     vcm.z = 0;
     
-    for(int i=0; i<N; i++ ){ // can't be parallelized with omp for because
+    for(int i=0; i<N; i++ ){ // can't be parallelized with openmp because
                              // drand48 relies on previous value, which would
                              // change results in parallel versions of the code
         
@@ -50,5 +50,47 @@ void Initialize( planet BD[], double scatter, double v, double r_i ){
 #   pragma omp parallel for default(none) shared(N, BD, vcm)
     for(int i=0; i<N; i++){
         BD[i].vel = BD[i].vel - vcm;
+    }
+}
+
+void InitializeFromFile(planet BD[], char* file_name, double r_i) {
+    printf("planet file name: %s\n", file_name);
+    FILE *file=fopen(file_name, "r");
+    int i = 0;
+    double totalMass = 0;
+    vector totalVcm; totalVcm.x = 0; totalVcm.y = 0; totalVcm.z = 0;
+    double xPos, yPos, zPos, xVel, yVel, zVel, mass;
+    while(fscanf(file, "%lf %lf %lf %lf %lf %lf %lf", &xPos, &yPos, &zPos, &xVel, &yVel, &zVel, &mass) != EOF) {
+        
+        BD[i].num = i;
+        
+        BD[i].pos.x = xPos;
+        BD[i].pos.y = yPos;
+        BD[i].pos.z = zPos;
+        
+        BD[i].vel.x = xVel;
+        BD[i].vel.y = yVel;
+        BD[i].vel.z = zVel;
+        
+        BD[i].r = r_i;
+        
+        BD[i].m = mass;
+        
+        totalMass += BD[i].m;
+        
+        totalVcm  += BD[i].vel * BD[i].m;
+        
+        i++;
+    }
+    if (i != N) {
+        printf("!ERROR: N in config must equal the number of planets in the planet file\n");
+        exit(EXIT_FAILURE);
+    }
+    printf("!Done reading from file\n");
+    fclose(file);
+    totalVcm = totalVcm / totalMass;
+    
+    for(int j=0; j<N; j++){
+        BD[j].vel = BD[j].vel - totalVcm;
     }
 }

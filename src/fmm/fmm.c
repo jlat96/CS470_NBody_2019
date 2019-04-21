@@ -120,8 +120,10 @@ void showOctree(region parent)
 int main(int nParam, char **paramList)
 {  
     long int time_start = clock();
+    
     char var[100], val[100];//Placeholders to be used when reading from config.txt
     FILE *config=fopen("config.txt", "r");
+    char *file_name = NULL;
     
     double v, scatter, r_i, t_end;
     int debug;
@@ -129,17 +131,17 @@ int main(int nParam, char **paramList)
     
     while( fscanf(config, "%s %s", var, val) != EOF)
     {
-        if( strcmp(var, "LVL") == 0)       LVL     = atoi(val);
-        if( strcmp(var, "N") == 0)         N       = atoi(val);
-        if( strcmp(var, "dt") == 0)        dt      = atof(val);
-        if( strcmp(var, "frameskip") == 0) fSkip   = atoi(val);
-        if( strcmp(var, "v_i") == 0)       v       = atof(val);
-        if( strcmp(var, "scatter") == 0)   scatter = atof(val);
-        if( strcmp(var, "alpha") == 0)     alpha   = atof(val);
-        if( strcmp(var, "r_i") == 0)       r_i     = atof(val);
-        if( strcmp(var, "t_end") == 0)     t_end   = atof(val);
-        if( strcmp(var, "debug") == 0)     debug   = atof(val); 
-        
+        if( strcmp(var, "LVL") == 0)       LVL       = atoi(val);
+        if( strcmp(var, "N") == 0)         N         = atoi(val);
+        if( strcmp(var, "dt") == 0)        dt        = atof(val);
+        if( strcmp(var, "frameskip") == 0) fSkip     = atoi(val);
+        if( strcmp(var, "v_i") == 0)       v         = atof(val);
+        if( strcmp(var, "scatter") == 0)   scatter   = atof(val);
+        if( strcmp(var, "alpha") == 0)     alpha     = atof(val);
+        if( strcmp(var, "r_i") == 0)       r_i       = atof(val);
+        if( strcmp(var, "t_end") == 0)     t_end     = atof(val);
+        if( strcmp(var, "debug") == 0)     debug     = atof(val); 
+        if( strcmp(var, "file_name") == 0) file_name =      val ;
     }
     
     int fil=1;
@@ -148,16 +150,17 @@ int main(int nParam, char **paramList)
         if (debug) {
             printf("!Reading command line params  ..  fil:%d  pL:%s  pL+1:%s \n", fil, paramList[fil], paramList[fil+1]);
         }
-        if( strcmp(paramList[fil], "LVL") == 0)       LVL     = atoi(paramList[fil+1]);
-        if( strcmp(paramList[fil], "N") == 0)         N       = atoi(paramList[fil+1]);
-        if( strcmp(paramList[fil], "dt") == 0)        dt      = atof(paramList[fil+1]);
-        if( strcmp(paramList[fil], "frameskip") == 0) fSkip   = atoi(paramList[fil+1]);
-        if( strcmp(paramList[fil], "v_i") == 0)       v       = atof(paramList[fil+1]);
-        if( strcmp(paramList[fil], "scatter") == 0)   scatter = atof(paramList[fil+1]);
-        if( strcmp(paramList[fil], "alpha") == 0)     alpha   = atof(paramList[fil+1]);
-        if( strcmp(paramList[fil], "r_i") == 0)       r_i     = atof(paramList[fil+1]);
-        if( strcmp(paramList[fil], "t_end") == 0)     t_end   = atof(paramList[fil+1]);
-        if( strcmp(paramList[fil], "debug") == 0)     debug   = atof(paramList[fil+1]);        
+        if( strcmp(paramList[fil], "LVL") == 0)       LVL       = atoi(paramList[fil+1]);
+        if( strcmp(paramList[fil], "N") == 0)         N         = atoi(paramList[fil+1]);
+        if( strcmp(paramList[fil], "dt") == 0)        dt        = atof(paramList[fil+1]);
+        if( strcmp(paramList[fil], "frameskip") == 0) fSkip     = atoi(paramList[fil+1]);
+        if( strcmp(paramList[fil], "v_i") == 0)       v         = atof(paramList[fil+1]);
+        if( strcmp(paramList[fil], "scatter") == 0)   scatter   = atof(paramList[fil+1]);
+        if( strcmp(paramList[fil], "alpha") == 0)     alpha     = atof(paramList[fil+1]);
+        if( strcmp(paramList[fil], "r_i") == 0)       r_i       = atof(paramList[fil+1]);
+        if( strcmp(paramList[fil], "t_end") == 0)     t_end     = atof(paramList[fil+1]);
+        if( strcmp(paramList[fil], "debug") == 0)     debug     = atof(paramList[fil+1]);  
+        if( strcmp(paramList[fil], "file_name") == 0) file_name =      paramList[fil+1] ;
         fil+=2;
     }
     
@@ -181,12 +184,20 @@ int main(int nParam, char **paramList)
     
     for(i=0;i<100;i++) proclist[i]=0;
     
-    //TODO add timer code and compare to serial version
-    Initialize(BD, scatter, v, r_i);
+    if (file_name != NULL) {
+        InitializeFromFile(BD, file_name ,r_i);
+    } else {
+        //TODO add timer code and compare to serial version
+        Initialize(BD, scatter, v, r_i);
+    }
+    
     if (debug) {
         printf("!Done intializing planets\n");
     }
     
+    if (debug) {
+        printf("!Calculating center of mass\n");
+    }
     //TODO add timer code and compare to serial version
     BDCOM = getCoM(BD);
     
@@ -254,6 +265,6 @@ int main(int nParam, char **paramList)
         }
         frame++;
     }
-    printf("E(0) = %.2f : E(t) = %.2f : P = %.2f : t = %.2f : Planets = %d : Mass = %.2f\n", E_init, E_curr, P_curr, t - 1, N, M_curr);
+    printf("E(0) = %.2f : E(t) = %.2f : P = %.2f : t = %.2f : Planets = %d : Mass = %.2f\n", E_init, E_curr, P_curr, t_end, N, M_curr);
     printf("time: %f seconds\n", (clock() - time_start) / (double) CLOCKS_PER_SEC);
 }
