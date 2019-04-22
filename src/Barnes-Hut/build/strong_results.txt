@@ -1,0 +1,53 @@
+Barnes-Hut Timing Results - 10000 Timesteps
+
+Strong Scaling - 512 Bodies
+
+1 Processes
+
+real	6m38.845s
+user	0m0.004s
+sys	0m0.006s
+
+2 Processes
+
+real	6m41.230s
+user	0m0.002s
+sys	0m0.007s
+
+4 Processes
+
+real	7m19.923s
+user	0m0.004s
+sys	0m0.006s
+
+8 Processes
+
+real	8m18.549s
+user	0m0.004s
+sys	0m0.008s
+
+16 Processes
+
+real	8m33.743s
+user	0m0.007s
+sys	0m0.008s
+
+32 Processes
+
+real	10m25.361s
+user	0m0.010s
+sys	0m0.011s
+
+64 Processes
+
+real	10m33.126s
+user	0m0.008s
+sys	0m0.023s
+
+128 Processes
+srun: job 231739 queued and waiting for resources
+srun: job 231739 has been allocated resources
+
+real	10m30.639s
+user	0m0.019s
+sys	0m0.038s

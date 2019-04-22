@@ -1,0 +1,544 @@
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     3    17 0.65565086314146E-01 0.18029542939227    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     4    17 0.68227246111525E-01 0.24852267550380    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     6    20 0.10106007357641     0.42300165029178    
+     4    17 0.68227246111525E-01 0.24852267550380    
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     7    17 0.74332656905685E-01 0.49733430719746    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     8    17 0.26656928025350E-02 0.50000000000000    
+     2    17 0.65154906089158E-01 0.11473034307813    
+  system time =    9.1206356883049011E-003
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     8    17 0.26656928025350E-02 0.50000000000000    
+     2    17 0.65154906089158E-01 0.11473034307813    
+  system time =    8.8891070336103439E-003
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     5    17 0.73418901211566E-01 0.32194157671536    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     6    20 0.10106007357641     0.42300165029178    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     6    20 0.10106007357641     0.42300165029178    
+  system time =    1.0483484715223312E-002
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    9.2366039752960205E-003
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    7.3846150189638138E-003
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     7    17 0.74332656905685E-01 0.49733430719746    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     3    17 0.65565086314146E-01 0.18029542939227    
+  system time =    8.3161722868680954E-003
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+  system time =    7.9819671809673309E-003
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    8.4134824573993683E-003
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     6    20 0.10106007357641     0.42300165029178    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     7    17 0.74332656905685E-01 0.49733430719746    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     3    17 0.65565086314146E-01 0.18029542939227    
+  system time =    8.3339959383010864E-003
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    7.0658642798662186E-003
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     5    17 0.73418901211566E-01 0.32194157671536    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     6    20 0.10106007357641     0.42300165029178    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     7    17 0.74332656905685E-01 0.49733430719746    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     8    17 0.26656928025350E-02 0.50000000000000    
+     5    17 0.73418901211566E-01 0.32194157671536    
+  system time =    9.6248332411050797E-003
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    8.5148736834526062E-003
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  number of bodies, n =            8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  print interval, dtout =   -2.5000000000000001E-002
+  Process            0  gets            8  bodies: from            1           8
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     8    17 0.26656928025350E-02 0.50000000000000    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     2    17 0.65154906089158E-01 0.11473034307813    
+  system time =    9.1379322111606598E-003
+     3    17 0.65565086314146E-01 0.18029542939227    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+     3    17 0.65565086314146E-01 0.18029542939227    
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     4    17 0.68227246111525E-01 0.24852267550380    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     6    20 0.10106007357641     0.42300165029178    
+     6    20 0.10106007357641     0.42300165029178    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     7    17 0.74332656905685E-01 0.49733430719746    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     3    17 0.65565086314146E-01 0.18029542939227    
+  system time =    8.2992445677518845E-003
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    8.3465967327356339E-003
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+     6    20 0.10106007357641     0.42300165029178    
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     7    17 0.74332656905685E-01 0.49733430719746    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     8    17 0.26656928025350E-02 0.50000000000000    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+  system time =    7.4196737259626389E-003
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     2    17 0.65154906089158E-01 0.11473034307813    
+  system time =    9.0861041098833084E-003
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     6    20 0.10106007357641     0.42300165029178    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     6    20 0.10106007357641     0.42300165029178    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     8    17 0.26656928025350E-02 0.50000000000000    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     2    17 0.65154906089158E-01 0.11473034307813    
+  system time =    1.0711105540394783E-002
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    1.0070072486996651E-002
+     3    17 0.65565086314146E-01 0.18029542939227    
+     2    17 0.65154906089158E-01 0.11473034307813    
+  system time =    1.1764416471123695E-002
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     4    17 0.68227246111525E-01 0.24852267550380    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     6    20 0.10106007357641     0.42300165029178    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     2    17 0.65154906089158E-01 0.11473034307813    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     8    17 0.26656928025350E-02 0.50000000000000    
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+     2    17 0.65154906089158E-01 0.11473034307813    
+  system time =    8.4328707307577133E-003
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+  number of bodies, n =            8
+  number of processes =            1
+  maximum order of Maclaurin expansion, mo =           28
+  Process            0  gets            8  bodies: from            1           8
+  time-like interval [tmin,tmax] =    0.0000000000000000       0.50000000000000000     
+  print interval, dtout =   -2.5000000000000001E-002
+  absolute error limit on velocities, EV =    2.2204460492503131E-015
+  diagnostics trigger, Diagnostics =  F
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     4    17 0.68227246111525E-01 0.24852267550380    
+  system time =    9.2478841543197632E-003
+  system time =    8.4979161620140076E-003
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    7.0719607174396515E-003
+     3    17 0.65565086314146E-01 0.18029542939227    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    6.9713145494461060E-003
+  system time =    6.9048684090375900E-003
+     8    17 0.26656928025350E-02 0.50000000000000    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    9.9499244242906570E-003
+     5    17 0.73418901211566E-01 0.32194157671536    
+  system time =    8.4408205002546310E-003
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    7.8912451863288879E-003
+     7    17 0.74332656905685E-01 0.49733430719746    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    8.4662809967994690E-003
+     1    15 0.49575436988969E-01 0.49575436988969E-01
+  system time =    7.9775638878345490E-003
+     2    17 0.65154906089158E-01 0.11473034307813    
+     3    17 0.65565086314146E-01 0.18029542939227    
+     4    17 0.68227246111525E-01 0.24852267550380    
+     5    17 0.73418901211566E-01 0.32194157671536    
+     6    20 0.10106007357641     0.42300165029178    
+     7    17 0.74332656905685E-01 0.49733430719746    
+     8    17 0.26656928025350E-02 0.50000000000000    
+  system time =    7.9504605382680893E-003

@@ -1,0 +1,173 @@
+Parker-Sochaki Timing Results
+
+Weak Scaling - 8 Processes
+
+4 Bodies
+
+real	0m0.433s
+user	0m0.006s
+sys	0m0.004s
+
+8 Bodies
+
+real	0m0.422s
+user	0m0.001s
+sys	0m0.009s
+
+16 Bodies
+
+real	0m0.493s
+user	0m0.006s
+sys	0m0.006s
+
+32 Bodies
+
+real	0m0.763s
+user	0m0.009s
+sys	0m0.005s
+
+64 Bodies
+
+real	0m3.816s
+user	0m0.012s
+sys	0m0.019s
+
+128 Bodies
+
+real	0m10.772s
+user	0m0.013s
+sys	0m0.021s
+
+256 Bodies
+
+real	4m27.286s
+user	0m0.041s
+sys	0m0.057s
+
+512 Bodies
+
+real	16m25.684s
+user	0m0.051s
+sys	0m0.059s
+
+1024 Bodies
+
+real	114m19.236s
+user	0m0.085s
+sys	0m0.143s
+
+Weak Scaling - 32 Processes
+
+4 Bodies
+
+real	0m0.423s
+user	0m0.012s
+sys	0m0.009s
+
+8 Bodies
+
+real	0m0.424s
+user	0m0.012s
+sys	0m0.009s
+
+16 Bodies
+
+real	0m0.478s
+user	0m0.010s
+sys	0m0.016s
+
+32 Bodies
+
+real	0m0.805s
+user	0m0.026s
+sys	0m0.030s
+
+64 Bodies
+
+real	0m4.122s
+user	0m0.036s
+sys	0m0.070s
+
+128 Bodies
+
+real	0m11.275s
+user	0m0.035s
+sys	0m0.071s
+
+256 Bodies
+
+real	9m6.285s
+user	0m0.158s
+sys	0m0.277s
+
+512 Bodies
+
+real	17m49.644s
+user	0m0.179s
+sys	0m0.260s
+
+1024 Bodies
+
+real	421m48.731s
+user	0m0.366s
+sys	0m0.542s
+
+Strong Scaling - 512 Bodies
+
+1 Processes
+
+real	84m48.767s
+user	0m0.017s
+sys	0m0.029s
+
+2 Processes
+
+real	85m56.223s
+user	0m0.022s
+sys	0m0.050s
+
+4 Processes
+
+real	92m27.065s
+user	0m0.058s
+sys	0m0.064s
+
+8 Processes
+
+real	105m28.864s
+user	0m0.089s
+sys	0m0.129s
+
+16 Processes
+
+real	103m14.978s
+user	0m0.160s
+sys	0m0.269s
+
+32 Processes
+
+real	117m4.974s
+user	0m0.360s
+sys	0m0.468s
+
+64 Processes
+
+real	250m21.930s
+user	0m0.756s
+sys	0m1.173s
+
+128 Processes
+srun: job 231765 queued and waiting for resources
+srun: job 231765 has been allocated resources
+
+real	272m27.261s
+user	0m2.125s
+sys	0m2.540s
+
+Stress Test - 128 Processes - 1024 Bodies
+srun: job 231766 queued and waiting for resources
+srun: job 231766 has been allocated resources
+
+real	269m52.400s
+user	0m2.161s
+sys	0m2.659s

@@ -1,8 +1,0 @@
-gcc -g -O2 --std=c99 -fopenmp -Wall -o nbody_psm_parallel nbody_psm_par.c -lm
-Serial Timing:
-Bodies: 4	Calculation: 0.4504s
-Bodies: 8	Calculation: 1.9439s
-Bodies: 16	Calculation: 7.7419s
-Bodies: 32	Calculation: 30.8753s
-Bodies: 64	Calculation: 122.4446s
-Bodies: 128	Calculation: 493.7504s
