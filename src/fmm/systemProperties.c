@@ -21,9 +21,10 @@ double Energy(planet BD[]){
             KE += 0.5 * BD[i].m * ( BD[i].vel * BD[i].vel );
         }
 
-#       pragma omp for reduction(+:PE)
+#       pragma omp for
         for(int i=0; i<N; i++){
             for(int j=i+1; j<N; j++ ){
+#               pragma omp critical
                 PE += BD[i].m * BD[j].m / radius( BD[i].pos, BD[j].pos );
             }
         }

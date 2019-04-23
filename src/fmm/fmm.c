@@ -222,6 +222,12 @@ int main(int nParam, char **paramList)
     //TODO add timer code and compare to serial version
     P_init = Momentum(BD);
     
+    if (debug) {
+        printf("Initial mass: %f\n", M_init);
+        printf("Initial energy: %f\n", E_init);
+        printf("Initial momentum: %f\n", P_init);
+    }
+    
     M_curr = M_init;
     E_curr = E_init;
     P_curr = P_init;
@@ -231,18 +237,24 @@ int main(int nParam, char **paramList)
     }
     for( t=0; t <= t_end; t+=dt )
     {  
-        if(t!=0) resetOctree(octree);
+        
+        if(t!=0) {
+            //TODO add timer code and compare to serial version
+            resetOctree(octree);
+        }
         pop_level_0(octree, BD);
         
         total_regions=1;
-        loopOverRegions(octree, BD);
-        // showOctree(octree);
         
+        loopOverRegions(octree, BD);
+        
+        //TODO add timer code and compare to serial version
         recurse_divide_by_mass(octree);
         
+        //TODO add timer code and compare to serial version
         omelyan(BD, method);
-        // leapfrog(BD, method);
         
+        //TODO add timer code and compare to serial version
         a += collisionCheck(BD);
         
         if( frame % fSkip == 0 )
@@ -259,7 +271,9 @@ int main(int nParam, char **paramList)
                         
             if (debug) {
                 printf("E(0) = %.2f : E(t) = %.2f : P = %.2f : t = %.2f : Planets = %d : Mass = %.2f\n", E_init, E_curr, P_curr, t, N, M_curr);
-                for( i=0; i<N; i++ ) printf("c3 %e %e %e %e\n", BD[i].pos.x, BD[i].pos.y, BD[i].pos.z, BD[i].r);
+                for( i=0; i<N; i++ ) {
+                    printf("c3 %e %e %e %e\n", BD[i].pos.x, BD[i].pos.y, BD[i].pos.z, BD[i].r);
+                }
                 printf("F\n");   
             }
         }

@@ -15,12 +15,11 @@ extern int collision_number;
 
 /****************************************/
 void Reset_Accelerations( planet BD[] ){
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].acc.x = 0;
-    BD[i].acc.y = 0;
-    BD[i].acc.z = 0;
-  }
+    for(int i=0;i<N;i++){
+        BD[i].acc.x = 0;
+        BD[i].acc.y = 0;
+        BD[i].acc.z = 0;
+    }
 }
 
 /****************************************/
@@ -30,50 +29,48 @@ void Reset_Accelerations( planet BD[] ){
 /****************************************/
 
 void Position_Half_Step( planet BD[] ){
-
-  int i;
-  for( i=0; i<N; i++ ){
-    BD[i].pos = BD[i].pos + BD[i].vel*dt/2;
-  }
+    
+    for(int i=0; i<N; i++ ){
+        BD[i].pos = BD[i].pos + BD[i].vel*dt/2;
+    }
 }
 
 /****************************************/
 
 void Velocity_Full_Step( planet BD[] ){
-  
-  int i;
-  for( i=0; i<N; i++ ){
-    BD[i].vel = BD[i].vel + BD[i].acc*dt;
-  }
+    
+    for(int i=0; i<N; i++ ){
+        BD[i].vel = BD[i].vel + BD[i].acc*dt;
+    }
 }
 
 /****************************************/
 
 void leapfrog( planet BD[], int method )
 {
-  int i;
+    int i;
     
-  Position_Half_Step(BD);
-  Reset_Accelerations(BD);
-
-  collision_check  = 1;
-  collision_number = 0;
-  
-  if( method == 0 ){
-    Exact_Force(BD);
-  }
-
+    Position_Half_Step(BD);
+    Reset_Accelerations(BD);
     
-  else{
-    for( i=0; i<N; i++ ){
-      //printf("!-----Doing force calculation for planet %d\n",i);
-      forceMagic(octree, BD[i], BD);
+    collision_check  = 1;
+    collision_number = 0;
+    
+    if( method == 0 ){
+        Exact_Force(BD);
     }
-  }
-  collision_check = 0;
-
-  Velocity_Full_Step(BD);
-  Position_Half_Step(BD);
+    
+    
+    else{
+        for( i=0; i<N; i++ ){
+            //printf("!-----Doing force calculation for planet %d\n",i);
+            forceMagic(octree, BD[i], BD);
+        }
+    }
+    collision_check = 0;
+    
+    Velocity_Full_Step(BD);
+    Position_Half_Step(BD);
 }
 
 
@@ -92,157 +89,260 @@ double chi = -0.06626458266982;
 
 void Position_Step_1( planet BD[] )
 {
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].pos = BD[i].pos + BD[i].vel*eps*dt;
-  }
+    for(int i=0;i<N;i++){
+        BD[i].pos = BD[i].pos + BD[i].vel*eps*dt;
+    }
 }
 
 /****************************************/
 
 void Velocity_Step_1(planet BD[])
 {
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].vel = BD[i].vel + BD[i].acc*(1-2*lam)*dt/2;
-  }
+    for(int i=0;i<N;i++){
+        BD[i].vel = BD[i].vel + BD[i].acc*(1-2*lam)*dt/2;
+    }
 }
 
 /****************************************/
 
 void Position_Step_2(planet BD[])
 {
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].pos = BD[i].pos + BD[i].vel*chi*dt;
-  }
+    for(int i=0;i<N;i++){
+        BD[i].pos = BD[i].pos + BD[i].vel*chi*dt;
+    }
 }
 
 /****************************************/
 
 void Velocity_Step_2(planet BD[])
 {
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].vel = BD[i].vel + BD[i].acc*lam*dt;
-  }
+    for(int i=0;i<N;i++){
+        BD[i].vel = BD[i].vel + BD[i].acc*lam*dt;
+    }
 }
 
 /****************************************/
 
 void Position_Step_3(planet BD[])
 {
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].pos = BD[i].pos + BD[i].vel*(1-2*(chi+eps))*dt;
-  }
+    for(int i=0;i<N;i++){
+        BD[i].pos = BD[i].pos + BD[i].vel*(1-2*(chi+eps))*dt;
+    }
 }
 
 /****************************************/
 
 void Velocity_Step_3(planet BD[])
 {
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].vel = BD[i].vel + BD[i].acc*lam*dt;
-  }
+    for(int i=0;i<N;i++){
+        BD[i].vel = BD[i].vel + BD[i].acc*lam*dt;
+    }
 }
 
 /****************************************/
 
 void Position_Step_4(planet BD[])
 {
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].pos = BD[i].pos + BD[i].vel*chi*dt;
-  }
+    for (int i=0;i<N;i++){
+        BD[i].pos = BD[i].pos + BD[i].vel*chi*dt;
+    }
 }
 
 /****************************************/
 
 void Velocity_Step_Final(planet BD[])
 {
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].vel = BD[i].vel + BD[i].acc*(1-2*lam)*dt/2;
-  }
+    for(int i=0;i<N;i++){
+        BD[i].vel = BD[i].vel + BD[i].acc*(1-2*lam)*dt/2;
+    }
 }
 
 /****************************************/
 
 void Position_Step_Final(planet BD[])
 { 
-  int i;
-  for(i=0;i<N;i++){
-    BD[i].pos = BD[i].pos + BD[i].vel*eps*dt;
-  }
+    for(int i=0;i<N;i++){
+        BD[i].pos = BD[i].pos + BD[i].vel*eps*dt;
+    }
 }
 
 /****************************************/
 
 void omelyan( planet BD[], int method )
 {
-  int i;
-
-  Position_Step_1(BD);
-  Reset_Accelerations(BD);
-
-  if( method == 0 ) Exact_Force(BD);
-  
-  else
-  {
-    for(i=0; i<N; i++)
+    //Position_Step_1(BD);
+#   pragma omp parallel default(none) shared(BD, N, method, chi, lam, eps, dt, octree, collision_check, collision_number)
     {
-      forceMagic(octree, BD[i], BD);
-    }
-  }
-    
-  Velocity_Step_1(BD);
-  Position_Step_2(BD);
-  Reset_Accelerations(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].pos.x = BD[i].pos.x + BD[i].vel.x*eps*dt;
+            BD[i].pos.y = BD[i].pos.y + BD[i].vel.y*eps*dt;
+            BD[i].pos.z = BD[i].pos.z + BD[i].vel.z*eps*dt;   
+        }
+        
+        //Reset_Accelerations(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].acc.x = 0;
+            BD[i].acc.y = 0;
+            BD[i].acc.z = 0;
+        }
+#       pragma omp single
+        {
+            if( method == 0)
+            {
+                Exact_Force(BD);
+            }
+            else
+            {
+                for(int i=0; i<N; i++)
+                {
+                    forceMagic(octree, BD[i], BD);
+                }
+            }
+        }
+        
+        //Velocity_Step_1(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].vel.x = BD[i].vel.x + BD[i].acc.x*(1-2*lam)*dt/2;
+            BD[i].vel.y = BD[i].vel.y + BD[i].acc.y*(1-2*lam)*dt/2;
+            BD[i].vel.z = BD[i].vel.z + BD[i].acc.z*(1-2*lam)*dt/2;
 
-  if( method == 0 ) Exact_Force(BD);
-  
-  else
-  {
-    for(i=0; i<N; i++)
-    {
-      forceMagic(octree, BD[i], BD); 
-    }
-  }
+        }
+        
+        //Position_Step_2(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].pos.x = BD[i].pos.x + BD[i].vel.x*chi*dt;
+            BD[i].pos.y = BD[i].pos.y + BD[i].vel.y*chi*dt;
+            BD[i].pos.z = BD[i].pos.z + BD[i].vel.z*chi*dt;
 
-  Velocity_Step_2(BD);
-  Position_Step_3(BD);
-  Reset_Accelerations(BD);
-  
-  if( method == 0 ) Exact_Force(BD);
-  
-  else
-  {
-    for(i=0; i<N; i++)
-    {
-      forceMagic(octree, BD[i], BD);
-    }
-  }
+        }
+        
+        //Reset_Accelerations(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].acc.x = 0;
+            BD[i].acc.y = 0;
+            BD[i].acc.z = 0;
+        }
+        
+#       pragma omp single
+        {
+            if( method == 0)
+            {
+                Exact_Force(BD);
+            }
+            else
+            {
+                for(int i=0; i<N; i++)
+                {
+                    forceMagic(octree, BD[i], BD);
+                }
+            }
+        }
+        
+        //Velocity_Step_2(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].vel.x = BD[i].vel.x + BD[i].acc.x*lam*dt;
+            BD[i].vel.y = BD[i].vel.y + BD[i].acc.y*lam*dt;
+            BD[i].vel.z = BD[i].vel.z + BD[i].acc.z*lam*dt;
 
-  Velocity_Step_3(BD);
-  Position_Step_4(BD);
-  Reset_Accelerations(BD);
+        }
+        
+        //Position_Step_3(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].pos.x = BD[i].pos.x + BD[i].vel.x*(1-2*(chi+eps))*dt;
+            BD[i].pos.y = BD[i].pos.y + BD[i].vel.y*(1-2*(chi+eps))*dt;
+            BD[i].pos.z = BD[i].pos.z + BD[i].vel.z*(1-2*(chi+eps))*dt;
 
-  collision_check  = 1;
-  collision_number = 0;
-  
-  if( method == 0 ) Exact_Force(BD);
-  
-  else
-  {
-    for(i=0; i<N; i++)
-    {
-      forceMagic(octree, BD[i], BD);
+        }
+        
+        //Reset_Accelerations(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].acc.x = 0;
+            BD[i].acc.y = 0;
+            BD[i].acc.z = 0;
+        }
+        
+#       pragma omp single
+        {
+            if( method == 0)
+            {
+                Exact_Force(BD);
+            }
+            else
+            {
+                for(int i=0; i<N; i++)
+                {
+                    forceMagic(octree, BD[i], BD);
+                }
+            }
+        }
+        
+        //Velocity_Step_3(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].vel.x = BD[i].vel.x + BD[i].acc.x*lam*dt;
+            BD[i].vel.y = BD[i].vel.y + BD[i].acc.y*lam*dt;
+            BD[i].vel.z = BD[i].vel.z + BD[i].acc.z*lam*dt;
+        }
+        
+        //Position_Step_4(BD);
+#       pragma omp for
+        for (int i=0;i<N;i++){
+            BD[i].pos.x = BD[i].pos.x + BD[i].vel.x*chi*dt;
+            BD[i].pos.y = BD[i].pos.y + BD[i].vel.y*chi*dt;
+            BD[i].pos.z = BD[i].pos.z + BD[i].vel.z*chi*dt;
+
+        }
+        
+        //Reset_Accelerations(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].acc.x = 0;
+            BD[i].acc.y = 0;
+            BD[i].acc.z = 0;
+        }
+        
+        collision_check  = 1;
+        collision_number = 0;
+        
+#       pragma omp single
+        {
+            if( method == 0)
+            {
+                Exact_Force(BD);
+            }
+            else
+            {
+                for(int i=0; i<N; i++)
+                {
+                    forceMagic(octree, BD[i], BD);
+                }
+            }
+        }
+        
+        collision_check = 0;
+        //Velocity_Step_Final(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].vel.x = BD[i].vel.x + BD[i].acc.x*(1-2*lam)*dt/2;
+            BD[i].vel.y = BD[i].vel.y + BD[i].acc.y*(1-2*lam)*dt/2;
+            BD[i].vel.z = BD[i].vel.z + BD[i].acc.z*(1-2*lam)*dt/2;
+
+        }
+        
+        //Position_Step_Final(BD);
+#       pragma omp for
+        for(int i=0;i<N;i++){
+            BD[i].pos.x = BD[i].pos.x + BD[i].vel.x*eps*dt;
+            BD[i].pos.y = BD[i].pos.y + BD[i].vel.y*eps*dt;
+            BD[i].pos.z = BD[i].pos.z + BD[i].vel.z*eps*dt;
+        }
     }
-  }
-  
-  collision_check = 0;
-  Velocity_Step_Final(BD);
-  Position_Step_Final(BD);
 }
