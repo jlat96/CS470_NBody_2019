@@ -139,7 +139,7 @@ def output_psm(num_bodies, mac_order, bodies, prefix):
     f_name = prefix + "_psm.dat"
     f = open(f_name, "w")
 
-    f.write(" {} 1\n".format(num_bodies))
+    f.write(" {} 0\n".format(num_bodies))
     f.write(" {}\n".format(mac_order))
     f.write(" 0.E+0,  0.5D0, -.025\n")
     f.write(" -1.0E-14, .F.\n")

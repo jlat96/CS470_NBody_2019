@@ -1,0 +1,22 @@
+Warning Shot
+
+real	0m0.491s
+user	0m0.004s
+sys	0m0.006s
+Barnes-Hut Timing Results
+
+Strong Scaling - 100 Bodies
+
+1 Processes
+
+real	0m24.612s
+user	0m0.004s
+sys	0m0.005s
+
+2 Processes
+
+real	0m24.709s
+user	0m0.002s
+sys	0m0.007s
+
+4 Processes

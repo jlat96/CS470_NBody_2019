@@ -1,25 +1,22 @@
 
-x=4
-lim=2048
+p=1
+x=100
+lim=801
 
 module load mpi
 
+echo "Warning Shot"
+time srun -n 8 ./pnb.x < ../Input_Generation/input_files_pow/input_4_psm.dat > out/pnb_test.out
+
+
 echo "Parker-Sochaki Timing Results"
 echo
-echo "Weak Scaling - 8 Processes"
-while [ $x -lt $lim ]; do
-echo
-echo "${x} Bodies"
-time srun -n 8 ./pnb.x < ../Input_Generation/input_files/input_${x}_psm.dat > out/pnb_4_${x}.out
-let x=$((x * 2))
-done
 
-let x=4
-echo
-echo "Weak Scaling - 32 Processes"
+echo "Weak Scaling"
 while [ $x -lt $lim ]; do
 echo
-echo "${x} Bodies"
-time srun -n 32 ./pnb.x < ../Input_Generation/input_files/input_${x}_psm.dat > out/pnb_32_${x}.out
+echo "${p} Processes ${x} Bodies"
+time srun -n ${p} ./pnb.x < ../Input_Generation/input_files_log_10/input_${x}_psm.dat > out/pnb_4_${x}.out
+let p=$((p * 2))
 let x=$((x * 2))
 done

@@ -1,37 +1,33 @@
+#!/bin/bash
 
-x=4
-lim=2048
+p=1
+x=100
+lim=801
 
 module load mpi
 
+echo "Warning Shot"
+time srun -n 2 ./pnb.x < ../Input_Generation/input_files_pow/input_4_psm.dat > out/pnb_test.
+rm comp_cost_*
+
+
 echo "Parker-Sochaki Timing Results"
 echo
-echo "Weak Scaling - 8 Processes"
-while [ $x -lt $lim ]; do
-echo
-echo "${x} Bodies"
-time srun -n 8 ./pnb.x < ../Input_Generation/input_files/input_${x}_psm.dat > out/pnb_4_${x}.out
-let x=$((x * 2))
-done
-
-let x=4
-echo
-echo "Weak Scaling - 32 Processes"
-while [ $x -lt $lim ]; do
-echo
-echo "${x} Bodies"
-time srun -n 32 ./pnb.x < ../Input_Generation/input_files/input_${x}_psm.dat > out/pnb_32_${x}.out
-let x=$((x * 2))
-done
-
-echo
-echo "Strong Scaling - 512 Bodies"
+echo "Strong Scaling - 100 Bodies"
 for i in 1 2 4 8 16 32 64 128; do
 echo
 echo "${i} Processes"
-time srun -n ${i} ./pnb.x < ../Input_Generation/input_files/input_1024_psm.dat > out/pnb_032_${i}.out
+time srun -n ${i} ./pnb.x < ../Input_Generation/input_files_log_10/input_100_psm.dat > out/pnb_100_${i}.out
+rm comp_cost_*
 done
 
+
+echo "Weak Scaling"
+while [ $x -lt $lim ]; do
 echo
-echo "Stress Test - 128 Processes - 1024 Bodies"
-time srun -n 128 ./pnb.x < ../Input_Generation/input_files/input_1024_psm.dat > out/pnb_stress.out
+echo "${p} Processes ${x} Bodies"
+time srun -n ${p} ./pnb.x < ../Input_Generation/input_files_log_10/input_${x}_psm.dat > out/pnb_4_${x}.out
+rm comp_cost_*
+let p=$((p * 2))
+let x=$((x * 2))
+done

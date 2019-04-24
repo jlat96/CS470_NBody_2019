@@ -1,0 +1,16 @@
+Warning Shot
+
+real	0m0.611s
+user	0m0.049s
+sys	0m0.070s
+Parker-Sochaki Timing Results
+
+Weak Scaling
+
+1 Processes 100 Bodies
+
+real	3m0.377s
+user	0m1.219s
+sys	0m2.371s
+
+2 Processes 200 Bodies
