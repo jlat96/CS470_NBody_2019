@@ -1,4 +1,5 @@
 # CS 470 Research - NBody Problem
+This problem was researched in Spring 2019 by Ben Bole, John Latino, Richard Bimmer, and Kevin Kelly under Dr. Mike Lam. We wished to compare parallel methods of various approaches to the N-Bodies Simulation Problem. In this repository we contain code for all of the algorithms which we compared as well as a directory for testing those algorithms.
 ## src
 This directory contains all source code for the three impmenentations we analyized in order to simulate the N-Bodies Problem. All of our directories tackle the problem of gravitational N-Bodies, other forces are not taken into account.
 ### Barnes-Hut Similation
