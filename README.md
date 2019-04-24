@@ -9,3 +9,5 @@ This directory contains an implementation of the Fast Multipole Method, written 
 This directory contains an implementation of the Parker-Sochaki Method, written in Fortran90. This code was originally implemented by Dr. C. David Pruett, Dr. William H. Ingham, and Dr. Ralph D. Herman and can be found written about [here](http://educ.jmu.edu/~sochacjs/PruettInghamHerman.pdf). Further details on this repository can be found within the folder it is currently in.
 ### Input Generation
 This directory contains all scripts for generating input for each algorithm listed above. The folders "input_files_log_10", "input_files_pow", and "input_files_swarm" all contain the input for various test suites for each algorithm.
+### minifmm
+This directory contains legacy code for an unused approach to the FMM method. It was not used, tested, or timed during our research.
