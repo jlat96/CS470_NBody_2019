@@ -4,7 +4,7 @@ FILES:
        SAMPLE INPUT DATA: 	pnb_032.dat  
        SAMPLE OUTPUT DATA: 	particle0001
 
-FIRST THINGS FIRST:
+IMPORTANT:
 
        Be sure paths are set so that the 'mpi.h' file included in
        pnb.f90 can be found during compilation.
@@ -49,10 +49,11 @@ OUTPUT DATA DESCRIPTION
      momenta1
      momenta2
      
-###Important Notes
-This is the team that worked with this code in 2019. The most important thing to understand in this Fortran code is
-the WRITE statements. In Fortran, there is no print equivalent, everything is treated as a file, including the terminal -
-this is what is done under the hood in C and C-like languages too, but Fortran makes it more explicit.
+### Important Notes
+This is the team that worked with this code in 2019. As we have never before encountered anytying written in Fortran, it took
+us some time to understand what was going on under the hood with this implementation. An important thing to understand in this 
+Fortran code is the WRITE statements. In Fortran, there is no print equivalent, everything is treated as a file, including the
+terminal - this is what is done under the hood in C and C-like languages too, but Fortran makes it more explicit.
 
 A WRITE statement is consistant of two parts (at minimum), the first tells the statement where to write to. In this
 code, numbers are binded to files during an OPEN statement - for example the file sys_summary is binded to the number 7.
