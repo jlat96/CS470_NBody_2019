@@ -1,271 +1,176 @@
 FMM Timing Results - 10000 Timesteps
 
-Weak Scaling - 8 Threads
+Weak Scaling - 1-8 Threads
 
-4 Bodies
-salloc: Granted job allocation 233605
-planet file name: ../Input_Generation/input_files_pow/input_4_fmm.in
+100 Bodies 1 threads
+salloc: Granted job allocation 233858
+planet file name: ../Input_Generation/input_files_log_10/input_100_fmm.in
 !Done reading from file
-E(0) = -30.86 : E(t) = 2226.66 : P = 70.04 : t = 10000.00 : Planets = 4 : Mass = 4.00
-Total Time: 0.0208
+E(0) = -18626.94 : E(t) = 416683.40 : P = 1149.44 : t = 10000.00 : Planets = 100 : Mass = 100.00
+Total Time: 0.3121
+Init Time: 0.0020
+COM Time: 0.0000
+Mass Time: 0.0000
+Energy Time: 0.0001
+Momentum Time: 0.0000
+Reset Time: 0.0104
+Pop Time: 0.0206
+Loop Time: 0.0453
+Divide Time: 0.0005
+Omelyan Time: 0.2305
+Collision Time: 0.0003
+salloc: Relinquishing job allocation 233858
+
+200 Bodies 2 threads
+salloc: Granted job allocation 233859
+planet file name: ../Input_Generation/input_files_log_10/input_200_fmm.in
+!Done reading from file
+E(0) = -72332.69 : E(t) = 529067.73 : P = 1016.15 : t = 10000.00 : Planets = 200 : Mass = 200.00
+Total Time: 0.6099
 Init Time: 0.0015
 COM Time: 0.0000
 Mass Time: 0.0000
-Energy Time: 0.0000
+Energy Time: 0.0004
 Momentum Time: 0.0000
-Reset Time: 0.0009
-Pop Time: 0.0035
-Loop Time: 0.0020
-Divide Time: 0.0004
-Omelyan Time: 0.0097
+Reset Time: 0.0203
+Pop Time: 0.0387
+Loop Time: 0.0830
+Divide Time: 0.0005
+Omelyan Time: 0.4630
 Collision Time: 0.0003
-salloc: Relinquishing job allocation 233605
+salloc: Relinquishing job allocation 233859
 
-8 Bodies
-salloc: Granted job allocation 233606
-planet file name: ../Input_Generation/input_files_pow/input_8_fmm.in
+400 Bodies 4 threads
+salloc: Granted job allocation 233860
+planet file name: ../Input_Generation/input_files_log_10/input_400_fmm.in
 !Done reading from file
-E(0) = -108.00 : E(t) = 30926.99 : P = 242.39 : t = 10000.00 : Planets = 8 : Mass = 8.00
-Total Time: 0.0314
-Init Time: 0.0012
+E(0) = -296063.55 : E(t) = 909600.05 : P = 711.06 : t = 10000.00 : Planets = 400 : Mass = 400.00
+Total Time: 1.3318
+Init Time: 0.0020
 COM Time: 0.0000
 Mass Time: 0.0000
-Energy Time: 0.0000
+Energy Time: 0.0015
 Momentum Time: 0.0000
-Reset Time: 0.0013
-Pop Time: 0.0044
-Loop Time: 0.0023
-Divide Time: 0.0004
-Omelyan Time: 0.0191
+Reset Time: 0.0413
+Pop Time: 0.0755
+Loop Time: 0.1750
+Divide Time: 0.0009
+Omelyan Time: 1.0339
 Collision Time: 0.0003
-salloc: Relinquishing job allocation 233606
+salloc: Relinquishing job allocation 233860
 
-16 Bodies
-salloc: Granted job allocation 233607
-planet file name: ../Input_Generation/input_files_pow/input_16_fmm.in
+800 Bodies 8 threads
+salloc: Granted job allocation 233861
+planet file name: ../Input_Generation/input_files_log_10/input_800_fmm.in
 !Done reading from file
-E(0) = -433.41 : E(t) = 24614.76 : P = 231.06 : t = 10000.00 : Planets = 16 : Mass = 16.00
-Total Time: 0.0532
-Init Time: 0.0010
+E(0) = -1183262.14 : E(t) = 6854843.38 : P = 1295.56 : t = 10000.00 : Planets = 800 : Mass = 800.00
+Total Time: 2.5534
+Init Time: 0.0024
 COM Time: 0.0000
 Mass Time: 0.0000
-Energy Time: 0.0000
+Energy Time: 0.0058
 Momentum Time: 0.0000
-Reset Time: 0.0022
-Pop Time: 0.0057
-Loop Time: 0.0041
-Divide Time: 0.0004
-Omelyan Time: 0.0373
+Reset Time: 0.0813
+Pop Time: 0.1482
+Loop Time: 0.3651
+Divide Time: 0.0009
+Omelyan Time: 1.9496
 Collision Time: 0.0003
-salloc: Relinquishing job allocation 233607
+salloc: Relinquishing job allocation 233861
 
-32 Bodies
-salloc: Granted job allocation 233608
-planet file name: ../Input_Generation/input_files_pow/input_32_fmm.in
-!Done reading from file
-E(0) = -1916.68 : E(t) = 107798.12 : P = 601.40 : t = 10000.00 : Planets = 32 : Mass = 32.00
-Total Time: 0.1031
-Init Time: 0.0010
-COM Time: 0.0000
-Mass Time: 0.0000
-Energy Time: 0.0000
-Momentum Time: 0.0000
-Reset Time: 0.0038
-Pop Time: 0.0086
-Loop Time: 0.0133
-Divide Time: 0.0004
-Omelyan Time: 0.0736
-Collision Time: 0.0003
-salloc: Relinquishing job allocation 233608
-
-64 Bodies
-salloc: Granted job allocation 233609
-planet file name: ../Input_Generation/input_files_pow/input_64_fmm.in
-!Done reading from file
-E(0) = -7420.10 : E(t) = 3265782.67 : P = 2430.53 : t = 10000.00 : Planets = 64 : Mass = 64.00
-Total Time: 0.1993
-Init Time: 0.0010
-COM Time: 0.0000
-Mass Time: 0.0000
-Energy Time: 0.0000
-Momentum Time: 0.0000
-Reset Time: 0.0070
-Pop Time: 0.0140
-Loop Time: 0.0278
-Divide Time: 0.0004
-Omelyan Time: 0.1465
-Collision Time: 0.0003
-salloc: Relinquishing job allocation 233609
-
-128 Bodies
-salloc: Granted job allocation 233610
-planet file name: ../Input_Generation/input_files_pow/input_128_fmm.in
-!Done reading from file
-E(0) = -29794.57 : E(t) = 546391.69 : P = 465.57 : t = 10000.00 : Planets = 128 : Mass = 128.00
-Total Time: 0.3894
-Init Time: 0.0012
-COM Time: 0.0000
-Mass Time: 0.0000
-Energy Time: 0.0002
-Momentum Time: 0.0000
-Reset Time: 0.0131
-Pop Time: 0.0255
-Loop Time: 0.0537
-Divide Time: 0.0004
-Omelyan Time: 0.2927
-Collision Time: 0.0003
-salloc: Relinquishing job allocation 233610
-
-256 Bodies
-salloc: Granted job allocation 233611
-planet file name: ../Input_Generation/input_files_pow/input_256_fmm.in
-!Done reading from file
-E(0) = -116707.43 : E(t) = 527344.58 : P = 1275.61 : t = 10000.00 : Planets = 256 : Mass = 256.00
-Total Time: 0.7839
-Init Time: 0.0015
-COM Time: 0.0000
-Mass Time: 0.0000
-Energy Time: 0.0006
-Momentum Time: 0.0000
-Reset Time: 0.0260
-Pop Time: 0.0493
-Loop Time: 0.0988
-Divide Time: 0.0006
-Omelyan Time: 0.6047
-Collision Time: 0.0003
-salloc: Relinquishing job allocation 233611
-
-512 Bodies
-salloc: Granted job allocation 233612
-planet file name: ../Input_Generation/input_files_pow/input_512_fmm.in
-!Done reading from file
-E(0) = -487293.88 : E(t) = 1113285.97 : P = 848.29 : t = 10000.00 : Planets = 512 : Mass = 512.00
-Total Time: 1.6361
-Init Time: 0.0017
-COM Time: 0.0000
-Mass Time: 0.0000
-Energy Time: 0.0023
-Momentum Time: 0.0000
-Reset Time: 0.0515
-Pop Time: 0.0955
-Loop Time: 0.2255
-Divide Time: 0.0008
-Omelyan Time: 1.2573
-Collision Time: 0.0003
-salloc: Relinquishing job allocation 233612
-
-1024 Bodies
-salloc: Granted job allocation 233613
-planet file name: ../Input_Generation/input_files_pow/input_1024_fmm.in
-!Done reading from file
-E(0) = -1940831.92 : E(t) = 48480650.52 : P = 4156.28 : t = 10000.00 : Planets = 1024 : Mass = 1024.00
-Total Time: 3.2764
-Init Time: 0.0023
-COM Time: 0.0000
-Mass Time: 0.0000
-Energy Time: 0.0095
-Momentum Time: 0.0000
-Reset Time: 0.1037
-Pop Time: 0.1957
-Loop Time: 0.4695
-Divide Time: 0.0007
-Omelyan Time: 2.4969
-Collision Time: 0.0003
-salloc: Relinquishing job allocation 233613
-
-Strong Scaling - 512 Bodies
+Strong Scaling - 100 Bodies
 
 1 Threads
-salloc: Granted job allocation 233614
-planet file name: ../Input_Generation/input_files_pow/input_512_fmm.in
+salloc: Granted job allocation 233862
+planet file name: ../Input_Generation/input_files_log_10/input_100_fmm.in
 !Done reading from file
-E(0) = -487293.88 : E(t) = 1113285.97 : P = 848.29 : t = 10000.00 : Planets = 512 : Mass = 512.00
-Total Time: 1.6276
-Init Time: 0.0017
-COM Time: 0.0000
-Mass Time: 0.0000
-Energy Time: 0.0024
-Momentum Time: 0.0000
-Reset Time: 0.0517
-Pop Time: 0.0953
-Loop Time: 0.2255
-Divide Time: 0.0008
-Omelyan Time: 1.2488
-Collision Time: 0.0003
-salloc: Relinquishing job allocation 233614
-
-2 Threads
-salloc: Granted job allocation 233615
-planet file name: ../Input_Generation/input_files_pow/input_512_fmm.in
-!Done reading from file
-E(0) = -487293.88 : E(t) = 1113285.97 : P = 848.29 : t = 10000.00 : Planets = 512 : Mass = 512.00
-Total Time: 1.6328
-Init Time: 0.0014
-COM Time: 0.0000
-Mass Time: 0.0000
-Energy Time: 0.0026
-Momentum Time: 0.0000
-Reset Time: 0.0518
-Pop Time: 0.0955
-Loop Time: 0.2256
-Divide Time: 0.0008
-Omelyan Time: 1.2538
-Collision Time: 0.0003
-salloc: Relinquishing job allocation 233615
-
-4 Threads
-salloc: Granted job allocation 233616
-planet file name: ../Input_Generation/input_files_pow/input_512_fmm.in
-!Done reading from file
-E(0) = -487293.88 : E(t) = 1113285.97 : P = 848.29 : t = 10000.00 : Planets = 512 : Mass = 512.00
-Total Time: 1.6696
-Init Time: 0.0018
-COM Time: 0.0000
-Mass Time: 0.0000
-Energy Time: 0.0024
-Momentum Time: 0.0000
-Reset Time: 0.0517
-Pop Time: 0.0959
-Loop Time: 0.2257
-Divide Time: 0.0008
-Omelyan Time: 1.2900
-Collision Time: 0.0003
-salloc: Relinquishing job allocation 233616
-
-8 Threads
-salloc: Granted job allocation 233617
-planet file name: ../Input_Generation/input_files_pow/input_512_fmm.in
-!Done reading from file
-E(0) = -487293.88 : E(t) = 1113285.97 : P = 848.29 : t = 10000.00 : Planets = 512 : Mass = 512.00
-Total Time: 1.6274
+E(0) = -18626.94 : E(t) = 416683.40 : P = 1149.44 : t = 10000.00 : Planets = 100 : Mass = 100.00
+Total Time: 0.3091
 Init Time: 0.0013
 COM Time: 0.0000
 Mass Time: 0.0000
-Energy Time: 0.0024
+Energy Time: 0.0001
 Momentum Time: 0.0000
-Reset Time: 0.0516
-Pop Time: 0.0955
-Loop Time: 0.2254
-Divide Time: 0.0008
-Omelyan Time: 1.2491
+Reset Time: 0.0104
+Pop Time: 0.0211
+Loop Time: 0.0449
+Divide Time: 0.0005
+Omelyan Time: 0.2283
 Collision Time: 0.0003
-salloc: Relinquishing job allocation 233617
+salloc: Relinquishing job allocation 233862
+
+2 Threads
+salloc: Granted job allocation 233863
+planet file name: ../Input_Generation/input_files_log_10/input_100_fmm.in
+!Done reading from file
+E(0) = -18626.94 : E(t) = 416683.40 : P = 1149.44 : t = 10000.00 : Planets = 100 : Mass = 100.00
+Total Time: 0.3084
+Init Time: 0.0014
+COM Time: 0.0000
+Mass Time: 0.0000
+Energy Time: 0.0001
+Momentum Time: 0.0000
+Reset Time: 0.0104
+Pop Time: 0.0205
+Loop Time: 0.0448
+Divide Time: 0.0005
+Omelyan Time: 0.2282
+Collision Time: 0.0003
+salloc: Relinquishing job allocation 233863
+
+4 Threads
+salloc: Granted job allocation 233864
+planet file name: ../Input_Generation/input_files_log_10/input_100_fmm.in
+!Done reading from file
+E(0) = -18626.94 : E(t) = 416683.40 : P = 1149.44 : t = 10000.00 : Planets = 100 : Mass = 100.00
+Total Time: 0.3092
+Init Time: 0.0013
+COM Time: 0.0000
+Mass Time: 0.0000
+Energy Time: 0.0001
+Momentum Time: 0.0000
+Reset Time: 0.0104
+Pop Time: 0.0205
+Loop Time: 0.0455
+Divide Time: 0.0005
+Omelyan Time: 0.2283
+Collision Time: 0.0003
+salloc: Relinquishing job allocation 233864
+
+8 Threads
+salloc: Granted job allocation 233865
+planet file name: ../Input_Generation/input_files_log_10/input_100_fmm.in
+!Done reading from file
+E(0) = -18626.94 : E(t) = 416683.40 : P = 1149.44 : t = 10000.00 : Planets = 100 : Mass = 100.00
+Total Time: 0.3149
+Init Time: 0.0013
+COM Time: 0.0000
+Mass Time: 0.0000
+Energy Time: 0.0001
+Momentum Time: 0.0000
+Reset Time: 0.0104
+Pop Time: 0.0206
+Loop Time: 0.0451
+Divide Time: 0.0005
+Omelyan Time: 0.2343
+Collision Time: 0.0003
+salloc: Relinquishing job allocation 233865
 
 Stress Test - 8 Threads - 1024 Bodies
-salloc: Granted job allocation 233618
+salloc: Granted job allocation 233866
 planet file name: ../Input_Generation/input_files_pow/input_1024_fmm.in
 !Done reading from file
 E(0) = -1940831.92 : E(t) = 48480650.52 : P = 4156.28 : t = 10000.00 : Planets = 1024 : Mass = 1024.00
-Total Time: 3.2363
-Init Time: 0.0022
+Total Time: 3.2618
+Init Time: 0.0030
 COM Time: 0.0000
 Mass Time: 0.0000
 Energy Time: 0.0094
 Momentum Time: 0.0000
-Reset Time: 0.1027
-Pop Time: 0.1885
-Loop Time: 0.4671
+Reset Time: 0.1048
+Pop Time: 0.1896
+Loop Time: 0.4681
 Divide Time: 0.0007
-Omelyan Time: 2.4675
+Omelyan Time: 2.4878
 Collision Time: 0.0003
-salloc: Relinquishing job allocation 233618
+salloc: Relinquishing job allocation 233866
