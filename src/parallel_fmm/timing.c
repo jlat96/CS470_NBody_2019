@@ -11,3 +11,4 @@ long int stoptimer(int t)
 {
   return clock()-timer[t];
 }
+

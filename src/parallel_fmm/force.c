@@ -5,6 +5,7 @@
 #include "planet.h"
 #include "pln.h"
 #include "region.h"
+#include "timing.h"
 
 extern double G;
 extern int collision_pair_1[];
@@ -48,6 +49,7 @@ void forceMagic(const region &regionToTest, planet &myplanet, const planet *BD){
     if(process)
     {
         // do region
+        starttimer(0);
         ++proclist[regionToTest.level];
         if (radsq) rad=sqrt(radsq); 
         else rad = radius(myplanet.pos,regionToTest.com);
@@ -101,3 +103,4 @@ void forceMagic(const region &regionToTest, planet &myplanet, const planet *BD){
         }
     }
 }
+
