@@ -7,7 +7,7 @@ This directory contains the Barnes-Hut simulation code, which is written in C++.
 ### Fast-Multipole Method
 This directory contains an implementation of the Fast Multipole Method, written in C. This code was originally implemented by @cfkane24 on Github and the original repository can be found [here](https://github.com/cfkane24/fast-multipole-method). Further details on this repository can be found within the folder it is currently in.
 ### Parker-Sochaki Method
-This directory contains an implementation of the Parker-Sochaki Method, written in Fortran90. This code was originally implemented by Dr. C. David Pruett, Dr. William H. Ingham, and Dr. Ralph D. Herman and can be found written about [here](http://educ.jmu.edu/~sochacjs/PruettInghamHerman.pdf). Further details on this repository can be found within the folder it is currently in.
+This directory contains an implementation of the Parker-Sochaki Method, written in Fortran90. This code was originally implemented by Dr. C. David Pruett, Dr. William H. Ingham, and Dr. Ralph D. Herman and can be found written about [here](http://educ.jmu.edu/~sochacjs/PruettInghamHerman.pdf). Further details on this repository and tips on understanding Fortran code can be found within the folder it is currently in.
 ### Input Generation
 This directory contains all scripts for generating input for each algorithm listed above. The folders "input_files_log_10", "input_files_pow", and "input_files_swarm" all contain the input for various test suites for each algorithm.
 ### minifmm
