@@ -57,6 +57,10 @@ void Initialize( planet BD[], double scatter, double v, double r_i ){
 void InitializeFromFile(planet BD[], char* file_name, double r_i) {
     printf("planet file name: %s\n", file_name);
     FILE *file=fopen(file_name, "r");
+    if (file == NULL) {
+        printf("Check file name\n");
+        exit(EXIT_FAILURE);
+    }
     int i = 0;
     double totalMass = 0;
     vector totalVcm; totalVcm.x = 0; totalVcm.y = 0; totalVcm.z = 0;

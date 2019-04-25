@@ -186,13 +186,13 @@ int main(int nParam, char **paramList)
     
     for(i=0;i<100;i++) proclist[i]=0;
     
+    START_TIMER(init);
     if (file_name != NULL) {
         InitializeFromFile(BD, file_name ,r_i);
     } else {
-        START_TIMER(init);
         Initialize(BD, scatter, v, r_i);
-        STOP_TIMER(init);
     }
+    STOP_TIMER(init);
     
     if (debug) {
         printf("!Done intializing planets\n");
@@ -303,17 +303,17 @@ int main(int nParam, char **paramList)
     }
     STOP_TIMER(total);
     
-    //START_TIMER(mass);
+    START_TIMER(mass);
     M_curr = Mass(BD);
-    //STOP_TIMER(mass);
+    STOP_TIMER(mass);
     
-    //START_TIMER(energy);
+    START_TIMER(energy);
     E_curr = Energy(BD);
-    //STOP_TIMER(energy);
+    STOP_TIMER(energy);
     
-    //START_TIMER(momentum);
+    START_TIMER(momentum);
     P_curr = Momentum(BD);
-    //STOP_TIMER(momentum);
+    STOP_TIMER(momentum);
     printf("E(0) = %.2f : E(t) = %.2f : P = %.2f : t = %.2f : Planets = %d : Mass = %.2f\n", E_init, E_curr, P_curr, t_end, N, M_curr);
     printf("Total Time: %.4f\n", GET_TIMER(total));
     printf("Init Time: %.4f\n", GET_TIMER(init));

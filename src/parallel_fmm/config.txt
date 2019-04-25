@@ -1,11 +1,11 @@
 LVL       100
-N         16
+N         1000
 dt        1
 frameskip 10
 v_i       2
 scatter   100
 alpha     4
 r_i       0.3
-t_end     30
+t_end     10000
 debug     0
-file_name input_16_fmm.in
+file_name input_1000_fmm.in
