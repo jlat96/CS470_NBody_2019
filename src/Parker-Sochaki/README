@@ -48,3 +48,22 @@ OUTPUT DATA DESCRIPTION
      energies
      momenta1
      momenta2
+     
+###Important Notes
+This is the team that worked with this code in 2019. The most important thing to understand in this Fortran code is
+the WRITE statements. In Fortran, there is no print equivalent, everything is treated as a file, including the terminal -
+this is what is done under the hood in C and C-like languages too, but Fortran makes it more explicit.
+
+A WRITE statement is consistant of two parts (at minimum), the first tells the statement where to write to. In this
+code, numbers are binded to files during an OPEN statement - for example the file sys_summary is binded to the number 7.
+Whenever a WRITE statement has a 7 in the first part, it tells the WRITE statement to write to whatever file is binded
+to 7. There are a few special numbers that are already pre-binded to specific files, the only one we care about is 6,
+which is binded to stdout. The second part of a WRITE statement tells how to format the string, you don't have to mess with
+this at all, just use *, which lets the compilier auto-format.
+
+After a WRITE statement, you use however many arguments you want to WRITE. Now that you understand very basic I/O in Fortran,
+the following statement should make some sense to you.
+
+OPEN(unit=7, file=hello)
+WRITE(6, *) "hello world"
+WRITE(7, *) "hello future students"
