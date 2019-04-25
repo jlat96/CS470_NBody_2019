@@ -5,19 +5,21 @@
  
 echo "FMM Timing Results - 10000 Timesteps"
 echo
-echo "Weak Scaling - 8 Threads"
-for x in 4 8 16 32 64 128 256 512 1024; do
+echo "Weak Scaling - 1-8 Threads"
+threads=1
+for x in 100 200 400 800; do
 	echo
-	echo "${x} Bodies"
-	OMP_NUM_THREADS=8 salloc ./gravity N ${x} file_name ../Input_Generation/input_files_pow/input_${x}_fmm.in  
+	echo "${x} Bodies ${threads} threads"
+	OMP_NUM_THREADS=${threads} salloc ./gravity N ${x} file_name ../Input_Generation/input_files_log_10/input_${x}_fmm.in  
+	threads=$(expr "$threads" '*' 2)
 done
 
 echo
-echo "Strong Scaling - 512 Bodies"
+echo "Strong Scaling - 100 Bodies"
 for x in 1 2 4 8; do
 	echo
 	echo "${x} Threads"
-	OMP_NUM_THREADS=${x} salloc ./gravity N 512 file_name ../Input_Generation/input_files_pow/input_512_fmm.in
+	OMP_NUM_THREADS=${x} salloc ./gravity N 100 file_name ../Input_Generation/input_files_log_10/input_100_fmm.in
 done
 
 echo
