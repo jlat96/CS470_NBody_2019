@@ -1,1 +1,0 @@
--bash: bg: ./test_small.sh: no such job
