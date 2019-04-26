@@ -56,7 +56,11 @@ A python script is supplied to animate the simulation.
 $ python py/plot.py positions.txt
 ```
 
+When run with the mpirun command the algorithm scales much better than when run with srun. We were not able to fully determine why this the case.
+
 ## Performance Tests
 There are two testing scripts included with the source code. `test.sh` runs both weak and strong scaling tests. This is the script we used to get the performance results for our comparison, so when run on the cluster it should give very similar results to ours.
 
 `test_swarm.sh` is an experimental script for getting results for swarms of bodies. Swarms of bodies do not have a central body around which other bodies move. More information can be found in the future work section of the paper.
+
+The mpirun tests were performed with the `test_mpirun.sh` script.
