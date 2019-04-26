@@ -8,6 +8,7 @@ def main():
     file_name = "nbody_input"
     
     mac_order = 28
+    psm_max_t = 1
 
     swarm = False
     psm = False
@@ -21,9 +22,9 @@ def main():
 
     # Parse command line arguments
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "abfhm:o:psv", ["all", "help", "output=", "swarm", "verbose"])
+        opts, args = getopt.getopt(sys.argv[1:], "abfhm:o:pst:v", ["all", "help", "output=", "swarm", "time=" "verbose"])
     except getopt.GetoptError as err:
-        print str(err)  
+        print(str(err))
         usage()
         sys.exit(2)
         
@@ -47,6 +48,8 @@ def main():
             psm = True
         elif o in ('-s', "--swarm"):
             swarm = True
+        elif o in ('-t', '--time'):
+            psm_max_t = float(a)
         elif o in ('-v', "--verbose"):
             verbose = True
         else:
@@ -75,7 +78,7 @@ def main():
         num_bodies -= 1
 
     # Calculate pseudo-random body values
-    for i in range(num_bodies):
+    for _ in range(num_bodies):
         bodies.append([random.uniform(*lim) for i in range(7)])
 
     if not swarm:
@@ -90,10 +93,15 @@ def main():
     # Output PSM input file
     if psm:
         if verbose:
-            print("\nWriting PSM Input File (Mac Order: {}\n".format(mac_order))
-        output_psm(num_bodies, mac_order, bodies, file_name)
+            print("\nWriting PSM Input File (Mac Order: {}, Max Time: {}\n".format(mac_order, psm_max_t))
+        output_psm(num_bodies, mac_order, psm_max_t, bodies, file_name)
 
-    # TODO Output FMM input file
+    # Output FMM input file
+    if fmm:
+        if verbose:
+            print("\nWriting BHS Input File")
+        output_fmm(bodies, file_name)
+
 
 def output_bhs(bodies, prefix):
     """
@@ -119,15 +127,25 @@ def output_bhs(bodies, prefix):
 def output_fmm(bodies, prefix):
     """
     Writes the specified bodies to an output file that can be parsed
-    by the the Fast-Multipole Methon program
+    by the the Fast-Multipole Method program
     :param num_bodies: The number of bodies being written
     :param bodies: The bodies to output
     :param prefix: The prefix for the output file name
     """
-    pass
-    
 
-def output_psm(num_bodies, mac_order, bodies, prefix):
+    f_name = prefix + "_fmm.in"
+
+    f = open(f_name, "w")
+    
+    for b in bodies:
+        for c in b[0:3]:
+            f.write(str(c) + " ")
+        f.write("0 0 0 1")
+        f.write("\n")
+
+    f.close()
+
+def output_psm(num_bodies, mac_order, max_t, bodies, prefix):
     """
     Writes the specified bodies to an output file that can be parsed
     by the Parker-Sochaki Method Program
@@ -141,7 +159,7 @@ def output_psm(num_bodies, mac_order, bodies, prefix):
 
     f.write(" {} 0\n".format(num_bodies))
     f.write(" {}\n".format(mac_order))
-    f.write(" 0.E+0,  0.5D0, -.025\n")
+    f.write(" 0.E+0,  {}D0, -.025\n".format(max_t))
     f.write(" -1.0E-14, .F.\n")
 
     # Input format:
@@ -168,6 +186,7 @@ def usage():
     print("\t-o --output: [filename]: Determine the file name prefix for the output file")
     print("\t-p: outputs a file for the supported Parker-Sochaki Method Implementation")
     print("\t-s: --swarm: generates a swarm based system of bodies")
+    print("\t-t --time [max_time]: set the maximum time value for calculation (PSM Only)")
     print("\t-v --verbose: run with verbose output")
 
 
