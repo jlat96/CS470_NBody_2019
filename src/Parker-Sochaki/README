@@ -1,7 +1,7 @@
 FILES:  
 
-       SOURCE CODE: 		pnb.f90
-       SAMPLE INPUT DATA: 	pnb_032.dat, nbody_input_10_psm.dat
+       SOURCE CODE:         pnb.f90
+       SAMPLE INPUT DATA:   pnb_032.dat, nbody_input_10_psm.dat
        BUILD SCRIPTS:       build.sh        
        CLEANING SCRIPTS:    clean.sh
        TESTING SCRIPTS:     run.sh, test.sh
