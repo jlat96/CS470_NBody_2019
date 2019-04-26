@@ -1,5 +1,5 @@
 
-This directory contains our parallelization of FMM. The following is a description of the program from the original authors.
+This directory contains our parallelization of FMM. The following is a description of the program from the original authors. It can be tested using the test.sh file.
 
 # fast-multipole-method
 
