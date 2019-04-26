@@ -15,7 +15,11 @@ TO COMPILE (with aggressive optimization):
 
 TO RUN with 4 processors:
 
-       mpirun -np 4 ./pnb.x < pnb_032.dat > pnb_032.out &
+       mpirun -np 4 ./pnb.x < pnb_032.dat > pnb_032.out
+       
+       or
+       
+       srun -n 4 mpirun ./pnb.x < pnb_032.dat > pnb_032.out
 
 INPUT DATA DESCRIPTION
 
