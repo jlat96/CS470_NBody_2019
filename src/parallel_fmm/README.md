@@ -1,3 +1,6 @@
+
+This directory contains our parallelization of FMM. The following is a description of the program from the original authors. It can be tested using the test.sh file.
+
 # fast-multipole-method
 
 This code implements the fast multipole method to study N bodies interacting via Newton's Law of Gravitation. The code follows work done in (insert citation here). The file fmm.c (short for fast multipole method) is where the main function is. 
