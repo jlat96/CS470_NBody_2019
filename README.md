@@ -1,7 +1,10 @@
 # CS 470 Research - NBody Problem
 This problem was researched in Spring 2019 by Ben Bole, John Latino, Richard Bimmer, and Kevin Kelly under Dr. Mike Lam. We wished to compare parallel methods of various approaches to the N-Bodies Simulation Problem. In this repository we contain code for all of the algorithms which we compared as well as a directory for testing those algorithms.
-## src
-This directory contains all source code for the three impmenentations we analyized in order to simulate the N-Bodies Problem. All of our directories tackle the problem of gravitational N-Bodies, other forces are not taken into account.
+
+A more detailed summary of the selected algorithms and approaches, our experiment methodology, results, and future reccomendations can be found [here](https://drive.google.com/open?id=1pRMRGz9M3wwcX9fkrnGJekzg1Cn7ktZB) (Please cite this as a resource, as well as our referenced works if you plan to continue research with these applications)
+
+# Repository Contents
+
 ### Barnes-Hut Similation
 This directory contains the Barnes-Hut simulation code, which is written in C++. The code was originally implemented by @barkm on Github and the original repository can be found [here](https://github.com/barkm/n-body). We manipulated the code so that we could time it. Further details on this repository can be found within the folder it is currently in.
 ### Fast-Multipole Method
